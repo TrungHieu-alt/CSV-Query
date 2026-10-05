@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="page-description" name="description" content="">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p id="eyebrow" class="eyebrow"></p>
+        <h1 id="heading"></h1>
+        <p id="subtitle" class="subtitle"></p>
+      </header>
+
+      <section class="workspace">
+        <div class="workspace-bar">
+          <nav class="tabs" aria-label="Application pages">
+            <button id="chat-tab" class="tab active" type="button"></button>
+            <button id="data-tab" class="tab" type="button"></button>
+          </nav>
+          <div class="dataset-controls">
+            <label class="sr-only" for="dataset-select">Active dataset</label>
+            <select id="dataset-select"></select>
+            <button id="upload-button" class="upload-button" type="button"></button>
+            <input id="file-input" class="sr-only" type="file" accept=".csv,text/csv">
+          </div>
+        </div>
+
+        <section id="chat-panel" class="panel chat-card">
+          <div id="messages" class="messages" aria-live="polite"></div>
+          <div id="examples" class="examples" aria-label="Example questions"></div>
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="question-input">Question</label>
+            <textarea id="question-input" maxlength="500" rows="1" required></textarea>
+            <button id="send-button" type="submit"></button>
+          </form>
+          <p id="status" class="status" role="status"></p>
+        </section>
+
+        <section id="data-panel" class="panel data-panel" hidden>
+          <div class="data-header">
+            <div>
+              <p id="data-kicker" class="data-kicker"></p>
+              <h2 id="data-title"></h2>
+            </div>
+            <p id="data-summary" class="data-summary"></p>
+          </div>
+          <div id="schema-cards" class="schema-cards"></div>
+          <div id="data-table" class="data-table"></div>
+          <div class="pagination">
+            <button id="previous-page" type="button"></button>
+            <span id="page-status"></span>
+            <button id="next-page" type="button"></button>
+          </div>
+          <p id="data-status" class="status" role="status"></p>
+        </section>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
