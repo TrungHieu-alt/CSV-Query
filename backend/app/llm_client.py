@@ -4,11 +4,52 @@ from typing import Any
 
 import requests
 
-from .plan import QueryPlan
-
-
 class LLMError(RuntimeError):
     pass
+
+
+GEMINI_QUERY_PLAN_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "clarify": {"type": "string", "nullable": True},
+        "filters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "column": {"type": "string"},
+                    "op": {"type": "string", "enum": ["==", "!=", ">", ">=", "<", "<=", "in", "contains"]},
+                    "value": {
+                        "anyOf": [
+                            {"type": "string"},
+                            {"type": "number"},
+                            {"type": "boolean"},
+                            {"type": "array", "items": {"type": "string"}},
+                        ]
+                    },
+                },
+                "required": ["column", "op", "value"],
+            },
+        },
+        "group_by": {"type": "array", "items": {"type": "string"}},
+        "aggregations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "column": {"type": "string"},
+                    "func": {"type": "string", "enum": ["sum", "mean", "count", "min", "max", "nunique"]},
+                    "alias": {"type": "string"},
+                },
+                "required": ["column", "func", "alias"],
+            },
+        },
+        "select": {"type": "array", "items": {"type": "string"}},
+        "sort_by": {"type": "string", "nullable": True},
+        "ascending": {"type": "boolean"},
+        "limit": {"type": "integer"},
+    },
+}
 
 
 class GeminiClient:
@@ -27,7 +68,7 @@ class GeminiClient:
                 "temperature": 0,
                 "maxOutputTokens": 1024,
                 "responseMimeType": "application/json",
-                "responseSchema": QueryPlan.model_json_schema(),
+                "responseSchema": GEMINI_QUERY_PLAN_SCHEMA,
             },
         }
         try:
@@ -49,4 +90,3 @@ class GeminiClient:
             raise
         except (requests.RequestException, KeyError, IndexError, TypeError, ValueError) as exc:
             raise LLMError("Gemini request failed.") from exc
-

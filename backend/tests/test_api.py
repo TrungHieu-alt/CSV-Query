@@ -21,14 +21,14 @@ class StubService:
         return self.response
 
 
-def make_client(service: StubService, rate: int = 20) -> TestClient:
+def make_client(service: StubService, rate: int = 20, llm_client: Any | None = None) -> TestClient:
     settings = Settings(
         gemini_api_key="test-secret-key",
         csv_path=Path(__file__).parents[1] / "data" / "sales_data.csv",
         allowed_origins=["http://localhost:8080"],
         rate_limit_per_minute=rate,
     )
-    app = create_app(settings, lambda _frame, _schema: service)
+    app = create_app(settings, lambda _frame, _schema: service, llm_client=llm_client)
     return TestClient(app)
 
 
@@ -40,6 +40,30 @@ def test_health_and_schema() -> None:
         assert 4 <= len(body["examples"]) <= 6
         order_id = body["columns"][0]
         assert "allowed_values" not in order_id
+
+
+def test_gemini_health_uses_injected_client_without_exposing_key() -> None:
+    class HealthyGemini:
+        def generate(self, _prompt: str) -> str:
+            return '{"clarify":"Connection successful"}'
+
+    with make_client(StubService(), llm_client=HealthyGemini()) as client:
+        response = client.get("/api/health/gemini")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok", "provider": "gemini", "model": "gemini-2.5-flash"}
+    assert "test-secret-key" not in response.text
+
+
+def test_gemini_health_returns_clean_failure() -> None:
+    class BrokenGemini:
+        def generate(self, _prompt: str) -> str:
+            raise RuntimeError("secret internal detail")
+
+    with make_client(StubService(), llm_client=BrokenGemini()) as client:
+        response = client.get("/api/health/gemini")
+    assert response.status_code == 502
+    assert response.json()["status"] == "error"
+    assert "internal detail" not in response.text
 
 
 def test_query_and_history() -> None:

@@ -64,6 +64,8 @@ more than 500 rows.
 ## API
 
 - `GET /api/health` — service health
+- `GET /api/health/gemini` — make a minimal request to verify the configured
+  Gemini key and model; never returns the key
 - `GET /api/schema` — generated column metadata and example questions
 - `POST /api/datasets?filename=file.csv` — upload raw UTF-8 CSV bytes
 - `GET /api/datasets/{dataset_id}/rows` — paginated rows for the explorer

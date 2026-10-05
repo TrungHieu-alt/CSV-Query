@@ -18,6 +18,7 @@ from .config import Settings
 from .datasets import MAX_UPLOAD_BYTES, DatasetError, DatasetRegistry
 from .executor import dataframe_page
 from .llm_client import GeminiClient, LLMError
+from .plan import QueryPlan
 from .schema import validate_declared_columns
 from .service import QueryService
 
@@ -67,17 +68,22 @@ def _load_data(settings: Settings) -> pd.DataFrame:
     return frame
 
 
-def create_app(settings: Settings | None = None, service_factory: Callable[[pd.DataFrame, list[dict[str, Any]]], Any] | None = None) -> FastAPI:
+def create_app(
+    settings: Settings | None = None,
+    service_factory: Callable[[pd.DataFrame, list[dict[str, Any]]], Any] | None = None,
+    llm_client: Any | None = None,
+) -> FastAPI:
     app_settings = settings or Settings()
     limiter = RateLimiter(app_settings.rate_limit_per_minute)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         frame = _load_data(app_settings)
+        client = llm_client or GeminiClient(app_settings.gemini_api_key, app_settings.gemini_model)
+        app.state.gemini_client = client
         if service_factory:
             service_builder = service_factory
         else:
-            client = GeminiClient(app_settings.gemini_api_key, app_settings.gemini_model)
             service_builder = lambda dataset, schema: QueryService(dataset, schema, client)
         app.state.datasets = DatasetRegistry(frame, service_builder)
         yield
@@ -102,6 +108,28 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
     @app.get("/api/health")
     async def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.get("/api/health/gemini")
+    async def gemini_health(request: Request) -> JSONResponse:
+        try:
+            raw = request.app.state.gemini_client.generate(
+                'Connection check. Return only {"clarify":"Connection successful"}.'
+            )
+            plan = QueryPlan.model_validate_json(raw)
+            if not plan.clarify:
+                raise ValueError("Unexpected connection-check response.")
+            return JSONResponse(content={
+                "status": "ok",
+                "provider": "gemini",
+                "model": app_settings.gemini_model,
+            })
+        except Exception:
+            return JSONResponse(status_code=502, content={
+                "status": "error",
+                "provider": "gemini",
+                "model": app_settings.gemini_model,
+                "error": "Gemini rejected the configured key or model request.",
+            })
 
     @app.get("/api/schema")
     async def schema(request: Request, dataset_id: str = "default") -> JSONResponse:
