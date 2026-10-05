@@ -1,0 +1,1001 @@
+order_id,order_date,product,category,region,quantity,unit_price,revenue
+ORD00001,2025-01-01,Smartphone,Electronics,Ho Chi Minh City,3,805.91,2417.73
+ORD00002,2025-06-25,Smartphone,Electronics,Ho Chi Minh City,3,811.2,2676.96
+ORD00003,2025-08-22,Headphones,Accessories,Can Tho,9,104.79,943.11
+ORD00004,2025-04-05,Mouse,Accessories,Hai Phong,6,22.65,135.9
+ORD00005,2025-11-25,Tablet,Electronics,Hai Phong,1,617.31,771.64
+ORD00006,2025-02-28,Headphones,Accessories,Da Nang,6,93.03,558.18
+ORD00007,2025-04-08,Monitor,Electronics,Da Nang,1,326.84,326.84
+ORD00008,2025-08-03,Laptop,Electronics,Da Nang,2,1504.81,3009.62
+ORD00009,2025-03-17,Smartphone,Electronics,Ho Chi Minh City,1,830.67,830.67
+ORD00010,2025-07-15,Webcam,Accessories,Hanoi,8,83.94,738.67
+ORD00011,2025-03-19,Smartphone,Electronics,Da Nang,1,832.65,832.65
+ORD00012,2025-04-25,Monitor,Electronics,Can Tho,5,339.37,1696.85
+ORD00013,2025-03-01,Smartphone,Electronics,Can Tho,2,782.47,1564.94
+ORD00014,2025-08-29,Headphones,Accessories,Da Nang,2,90.85,181.7
+ORD00015,2025-01-07,Headphones,Accessories,Hanoi,1,96.7,96.7
+ORD00016,2025-11-06,Keyboard,Accessories,Ho Chi Minh City,6,55.23,414.23
+ORD00017,2025-10-23,Mouse,Accessories,Can Tho,8,23.23,185.84
+ORD00018,2025-08-21,Headphones,Accessories,Hai Phong,9,94.33,848.97
+ORD00019,2025-11-28,Monitor,Electronics,Ho Chi Minh City,1,340.14,425.17
+ORD00020,2025-05-23,Mouse,Accessories,Can Tho,8,23.26,186.08
+ORD00021,2025-05-22,Webcam,Accessories,Hai Phong,10,78.71,787.1
+ORD00022,2025-02-18,Headphones,Accessories,Hai Phong,4,102.02,408.08
+ORD00023,2025-06-13,Smartphone,Electronics,Ho Chi Minh City,2,759.16,1670.15
+ORD00024,2025-08-26,Keyboard,Accessories,Ho Chi Minh City,4,57.78,231.12
+ORD00025,2025-02-05,Tablet,Electronics,Da Nang,3,617.88,1853.64
+ORD00026,2025-05-08,Mouse,Accessories,Hanoi,3,24.43,73.29
+ORD00027,2025-03-16,Keyboard,Accessories,Can Tho,4,56.39,225.56
+ORD00028,2025-02-07,Keyboard,Accessories,Hanoi,2,60.86,121.72
+ORD00029,2025-02-06,Monitor,Electronics,Ho Chi Minh City,5,325.98,1629.9
+ORD00030,2025-10-05,Keyboard,Accessories,Ho Chi Minh City,3,61.56,184.68
+ORD00031,2025-04-10,Keyboard,Accessories,Ho Chi Minh City,2,56.34,112.68
+ORD00032,2025-04-10,Smartphone,Electronics,Can Tho,1,732.81,732.81
+ORD00033,2025-07-05,Tablet,Electronics,Hanoi,3,580.98,1917.23
+ORD00034,2025-10-23,Keyboard,Accessories,Ho Chi Minh City,8,54.48,435.84
+ORD00035,2025-06-04,Headphones,Accessories,Hanoi,9,95.74,947.83
+ORD00036,2025-01-14,Headphones,Accessories,Hanoi,1,93.45,93.45
+ORD00037,2025-05-02,Headphones,Accessories,Ho Chi Minh City,6,92.55,555.3
+ORD00038,2025-10-05,Headphones,Accessories,Ho Chi Minh City,5,103.56,517.8
+ORD00039,2025-03-10,Laptop,Electronics,Ho Chi Minh City,1,1358.41,1358.41
+ORD00040,2025-05-18,Headphones,Accessories,Hanoi,7,94.62,662.34
+ORD00041,2025-06-12,Keyboard,Accessories,Ho Chi Minh City,5,62.66,344.63
+ORD00042,2025-02-26,Headphones,Accessories,Ho Chi Minh City,3,91.38,274.14
+ORD00043,2025-05-26,Headphones,Accessories,Hanoi,3,92.87,278.61
+ORD00044,2025-07-15,Smartphone,Electronics,Ho Chi Minh City,1,837.87,921.66
+ORD00045,2025-09-18,Webcam,Accessories,Hanoi,5,74.23,371.15
+ORD00046,2025-06-15,Webcam,Accessories,Ho Chi Minh City,1,81.46,89.61
+ORD00047,2025-12-21,Webcam,Accessories,Ho Chi Minh City,3,80.64,302.4
+ORD00048,2025-03-18,Keyboard,Accessories,Hanoi,10,61.56,615.6
+ORD00049,2025-03-16,Webcam,Accessories,Ho Chi Minh City,10,78.71,787.1
+ORD00050,2025-12-21,Tablet,Electronics,Ho Chi Minh City,2,575.37,1438.42
+ORD00051,2025-11-22,Headphones,Accessories,Hanoi,3,94.34,353.77
+ORD00052,2025-04-25,Tablet,Electronics,Hanoi,1,544.38,544.38
+ORD00053,2025-03-10,Smartphone,Electronics,Ho Chi Minh City,2,815.21,1630.42
+ORD00054,2025-06-14,Webcam,Accessories,Ho Chi Minh City,2,72.15,158.73
+ORD00055,2025-08-20,Tablet,Electronics,Ho Chi Minh City,3,601.07,1803.21
+ORD00056,2025-09-11,Tablet,Electronics,Hanoi,2,552.3,1104.6
+ORD00057,2025-11-19,Headphones,Accessories,Hanoi,6,102.42,768.15
+ORD00058,2025-03-20,Keyboard,Accessories,Hai Phong,5,62.56,312.8
+ORD00059,2025-09-10,Mouse,Accessories,Hanoi,7,23.6,165.2
+ORD00060,2025-02-10,Headphones,Accessories,Ho Chi Minh City,8,104.5,836.0
+ORD00061,2025-07-25,Headphones,Accessories,Ho Chi Minh City,7,93.86,722.72
+ORD00062,2025-06-03,Keyboard,Accessories,Hanoi,3,59.75,197.18
+ORD00063,2025-09-18,Monitor,Electronics,Ho Chi Minh City,2,328.69,657.38
+ORD00064,2025-06-12,Keyboard,Accessories,Hai Phong,1,62.4,68.64
+ORD00065,2025-09-05,Monitor,Electronics,Can Tho,2,345.0,690.0
+ORD00066,2025-02-27,Webcam,Accessories,Ho Chi Minh City,4,82.3,329.2
+ORD00067,2025-08-31,Headphones,Accessories,Ho Chi Minh City,10,99.64,996.4
+ORD00068,2025-02-28,Mouse,Accessories,Da Nang,4,23.86,95.44
+ORD00069,2025-12-18,Mouse,Accessories,Hanoi,6,24.43,183.22
+ORD00070,2025-05-13,Keyboard,Accessories,Ho Chi Minh City,9,54.67,492.03
+ORD00071,2025-02-02,Tablet,Electronics,Da Nang,2,573.74,1147.48
+ORD00072,2025-09-11,Tablet,Electronics,Hai Phong,3,597.73,1793.19
+ORD00073,2025-06-08,Mouse,Accessories,Hai Phong,2,24.64,54.21
+ORD00074,2025-08-31,Keyboard,Accessories,Can Tho,1,55.02,55.02
+ORD00075,2025-03-05,Mouse,Accessories,Hanoi,3,23.98,71.94
+ORD00076,2025-05-08,Webcam,Accessories,Hanoi,3,72.3,216.9
+ORD00077,2025-09-14,Tablet,Electronics,Hanoi,3,580.42,1741.26
+ORD00078,2025-03-22,Mouse,Accessories,Hanoi,5,23.55,117.75
+ORD00079,2025-06-04,Mouse,Accessories,Hanoi,1,23.66,26.03
+ORD00080,2025-07-31,Mouse,Accessories,Da Nang,4,25.4,111.76
+ORD00081,2025-03-31,Headphones,Accessories,Ho Chi Minh City,6,99.96,599.76
+ORD00082,2025-08-13,Mouse,Accessories,Hanoi,9,25.43,228.87
+ORD00083,2025-01-21,Smartphone,Electronics,Da Nang,3,740.5,2221.5
+ORD00084,2025-05-16,Monitor,Electronics,Ho Chi Minh City,5,358.94,1794.7
+ORD00085,2025-03-29,Headphones,Accessories,Ho Chi Minh City,9,91.25,821.25
+ORD00086,2025-11-22,Mouse,Accessories,Hanoi,3,25.23,94.61
+ORD00087,2025-08-23,Keyboard,Accessories,Da Nang,6,60.82,364.92
+ORD00088,2025-01-05,Tablet,Electronics,Ho Chi Minh City,3,565.22,1695.66
+ORD00089,2025-11-24,Mouse,Accessories,Hanoi,1,23.21,29.01
+ORD00090,2025-09-06,Mouse,Accessories,Ho Chi Minh City,6,23.03,138.18
+ORD00091,2025-11-02,Smartphone,Electronics,Hanoi,2,821.18,2052.95
+ORD00092,2025-12-31,Webcam,Accessories,Hai Phong,5,82.81,517.56
+ORD00093,2025-10-05,Headphones,Accessories,Hai Phong,5,104.56,522.8
+ORD00094,2025-07-29,Monitor,Electronics,Ho Chi Minh City,1,327.89,360.68
+ORD00095,2025-06-15,Mouse,Accessories,Hanoi,8,25.77,226.78
+ORD00096,2025-05-01,Webcam,Accessories,Ho Chi Minh City,2,72.47,144.94
+ORD00097,2025-10-26,Mouse,Accessories,Ho Chi Minh City,10,22.94,229.4
+ORD00098,2025-05-14,Laptop,Electronics,Can Tho,2,1495.96,2991.92
+ORD00099,2025-09-21,Laptop,Electronics,Da Nang,2,1350.45,2700.9
+ORD00100,2025-03-05,Mouse,Accessories,Ho Chi Minh City,1,23.93,23.93
+ORD00101,2025-06-14,Headphones,Accessories,Hanoi,4,94.69,416.64
+ORD00102,2025-08-09,Headphones,Accessories,Hai Phong,2,103.31,206.62
+ORD00103,2025-11-06,Monitor,Electronics,Hanoi,3,362.72,1360.2
+ORD00104,2025-10-02,Mouse,Accessories,Hanoi,2,24.84,49.68
+ORD00105,2025-04-01,Smartphone,Electronics,Hanoi,3,775.63,2326.89
+ORD00106,2025-11-09,Tablet,Electronics,Hanoi,2,602.9,1507.25
+ORD00107,2025-05-06,Monitor,Electronics,Hanoi,1,323.24,323.24
+ORD00108,2025-12-27,Laptop,Electronics,Hanoi,3,1573.05,5898.94
+ORD00109,2025-01-21,Monitor,Electronics,Can Tho,2,336.72,673.44
+ORD00110,2025-09-11,Headphones,Accessories,Da Nang,4,93.06,372.24
+ORD00111,2025-01-31,Mouse,Accessories,Da Nang,2,23.16,46.32
+ORD00112,2025-08-07,Mouse,Accessories,Hanoi,8,23.78,190.24
+ORD00113,2025-03-16,Mouse,Accessories,Da Nang,10,26.2,262.0
+ORD00114,2025-02-10,Keyboard,Accessories,Hanoi,6,58.44,350.64
+ORD00115,2025-06-25,Mouse,Accessories,Da Nang,4,24.1,106.04
+ORD00116,2025-01-24,Webcam,Accessories,Hai Phong,3,83.17,249.51
+ORD00117,2025-04-13,Laptop,Electronics,Can Tho,3,1420.15,4260.45
+ORD00118,2025-02-27,Headphones,Accessories,Hanoi,7,91.26,638.82
+ORD00119,2025-02-10,Mouse,Accessories,Hanoi,2,25.53,51.06
+ORD00120,2025-02-21,Mouse,Accessories,Can Tho,5,26.19,130.95
+ORD00121,2025-03-20,Monitor,Electronics,Ho Chi Minh City,3,347.87,1043.61
+ORD00122,2025-01-28,Smartphone,Electronics,Can Tho,1,806.86,806.86
+ORD00123,2025-08-05,Smartphone,Electronics,Hanoi,1,820.71,820.71
+ORD00124,2025-10-20,Keyboard,Accessories,Can Tho,2,56.05,112.1
+ORD00125,2025-03-08,Monitor,Electronics,Can Tho,3,355.56,1066.68
+ORD00126,2025-06-23,Mouse,Accessories,Da Nang,3,25.5,84.15
+ORD00127,2025-04-04,Keyboard,Accessories,Ho Chi Minh City,10,60.99,609.9
+ORD00128,2025-03-21,Tablet,Electronics,Hai Phong,3,604.26,1812.78
+ORD00129,2025-08-19,Mouse,Accessories,Ho Chi Minh City,5,25.11,125.55
+ORD00130,2025-01-21,Monitor,Electronics,Ho Chi Minh City,5,360.43,1802.15
+ORD00131,2025-09-17,Keyboard,Accessories,Hanoi,6,54.17,325.02
+ORD00132,2025-07-21,Tablet,Electronics,Hanoi,3,570.27,1881.89
+ORD00133,2025-01-24,Tablet,Electronics,Da Nang,2,608.36,1216.72
+ORD00134,2025-01-05,Keyboard,Accessories,Ho Chi Minh City,7,57.13,399.91
+ORD00135,2025-06-24,Webcam,Accessories,Da Nang,2,76.96,169.31
+ORD00136,2025-06-11,Monitor,Electronics,Can Tho,3,346.37,1143.02
+ORD00137,2025-04-26,Mouse,Accessories,Da Nang,3,24.8,74.4
+ORD00138,2025-06-27,Keyboard,Accessories,Hanoi,3,54.51,179.88
+ORD00139,2025-01-14,Headphones,Accessories,Can Tho,6,91.49,548.94
+ORD00140,2025-03-01,Mouse,Accessories,Hanoi,9,23.84,214.56
+ORD00141,2025-07-15,Smartphone,Electronics,Hanoi,2,801.11,1762.44
+ORD00142,2025-05-21,Mouse,Accessories,Ho Chi Minh City,10,24.43,244.3
+ORD00143,2025-07-09,Mouse,Accessories,Da Nang,8,25.51,224.49
+ORD00144,2025-04-27,Laptop,Electronics,Hanoi,3,1480.54,4441.62
+ORD00145,2025-12-19,Laptop,Electronics,Hanoi,1,1534.44,1918.05
+ORD00146,2025-12-10,Mouse,Accessories,Ho Chi Minh City,6,23.54,176.55
+ORD00147,2025-12-20,Smartphone,Electronics,Ho Chi Minh City,2,808.2,2020.5
+ORD00148,2025-10-08,Monitor,Electronics,Ho Chi Minh City,1,356.0,356.0
+ORD00149,2025-09-21,Headphones,Accessories,Hanoi,8,97.27,778.16
+ORD00150,2025-08-26,Mouse,Accessories,Can Tho,4,23.81,95.24
+ORD00151,2025-04-21,Keyboard,Accessories,Can Tho,8,58.24,465.92
+ORD00152,2025-11-17,Mouse,Accessories,Ho Chi Minh City,9,24.64,277.2
+ORD00153,2025-10-02,Webcam,Accessories,Hanoi,3,80.05,240.15
+ORD00154,2025-01-19,Headphones,Accessories,Da Nang,2,99.75,199.5
+ORD00155,2025-08-13,Headphones,Accessories,Ho Chi Minh City,2,96.91,193.82
+ORD00156,2025-12-22,Headphones,Accessories,Hanoi,5,98.82,617.62
+ORD00157,2025-07-17,Monitor,Electronics,Hanoi,3,316.05,1042.97
+ORD00158,2025-11-01,Smartphone,Electronics,Can Tho,3,833.06,3123.97
+ORD00159,2025-09-23,Webcam,Accessories,Ho Chi Minh City,9,79.72,717.48
+ORD00160,2025-06-19,Mouse,Accessories,Ho Chi Minh City,4,23.05,101.42
+ORD00161,2025-03-06,Smartphone,Electronics,Ho Chi Minh City,2,740.82,1481.64
+ORD00162,2025-03-29,Mouse,Accessories,Ho Chi Minh City,3,25.23,75.69
+ORD00163,2025-08-02,Headphones,Accessories,Hanoi,9,95.19,856.71
+ORD00164,2025-07-08,Tablet,Electronics,Da Nang,3,566.7,1870.11
+ORD00165,2025-03-06,Webcam,Accessories,Hanoi,3,78.18,234.54
+ORD00166,2025-11-18,Mouse,Accessories,Ho Chi Minh City,8,25.16,251.6
+ORD00167,2025-02-17,Webcam,Accessories,Hanoi,9,79.6,716.4
+ORD00168,2025-05-12,Mouse,Accessories,Hai Phong,3,24.54,73.62
+ORD00169,2025-02-09,Laptop,Electronics,Can Tho,2,1371.82,2743.64
+ORD00170,2025-12-06,Monitor,Electronics,Ho Chi Minh City,3,364.98,1368.68
+ORD00171,2025-01-10,Tablet,Electronics,Hanoi,2,591.09,1182.18
+ORD00172,2025-06-06,Tablet,Electronics,Hanoi,2,615.95,1355.09
+ORD00173,2025-07-31,Mouse,Accessories,Can Tho,9,22.64,224.14
+ORD00174,2025-06-21,Monitor,Electronics,Hai Phong,2,317.02,697.44
+ORD00175,2025-09-28,Smartphone,Electronics,Hanoi,3,765.25,2295.75
+ORD00176,2025-06-30,Smartphone,Electronics,Hanoi,2,830.37,1826.81
+ORD00177,2025-01-12,Mouse,Accessories,Hanoi,4,25.45,101.8
+ORD00178,2025-03-07,Mouse,Accessories,Hai Phong,6,25.47,152.82
+ORD00179,2025-02-02,Mouse,Accessories,Hanoi,7,23.88,167.16
+ORD00180,2025-01-22,Webcam,Accessories,Da Nang,8,78.01,624.08
+ORD00181,2025-06-13,Monitor,Electronics,Hanoi,5,316.21,1739.16
+ORD00182,2025-08-08,Keyboard,Accessories,Hanoi,4,62.89,251.56
+ORD00183,2025-03-16,Mouse,Accessories,Hai Phong,9,24.71,222.39
+ORD00184,2025-03-26,Smartphone,Electronics,Ho Chi Minh City,2,802.5,1605.0
+ORD00185,2025-07-30,Headphones,Accessories,Da Nang,1,90.31,99.34
+ORD00186,2025-11-26,Headphones,Accessories,Hanoi,1,90.38,112.97
+ORD00187,2025-04-29,Webcam,Accessories,Hai Phong,8,83.44,667.52
+ORD00188,2025-05-09,Headphones,Accessories,Hanoi,10,93.71,937.1
+ORD00189,2025-01-07,Webcam,Accessories,Hanoi,7,80.25,561.75
+ORD00190,2025-07-07,Keyboard,Accessories,Hanoi,7,59.1,455.07
+ORD00191,2025-09-05,Keyboard,Accessories,Da Nang,1,62.09,62.09
+ORD00192,2025-09-01,Monitor,Electronics,Ho Chi Minh City,4,327.84,1311.36
+ORD00193,2025-06-15,Smartphone,Electronics,Hai Phong,3,720.78,2378.57
+ORD00194,2025-03-25,Headphones,Accessories,Da Nang,3,96.16,288.48
+ORD00195,2025-10-30,Headphones,Accessories,Ho Chi Minh City,3,103.99,311.97
+ORD00196,2025-01-29,Headphones,Accessories,Ho Chi Minh City,9,92.02,828.18
+ORD00197,2025-07-09,Monitor,Electronics,Da Nang,4,334.3,1470.92
+ORD00198,2025-12-25,Headphones,Accessories,Hanoi,3,93.88,352.05
+ORD00199,2025-10-28,Headphones,Accessories,Ho Chi Minh City,6,96.0,576.0
+ORD00200,2025-03-17,Headphones,Accessories,Hanoi,10,102.03,1020.3
+ORD00201,2025-12-04,Webcam,Accessories,Hanoi,1,83.19,103.99
+ORD00202,2025-11-19,Mouse,Accessories,Da Nang,10,23.58,294.75
+ORD00203,2025-11-03,Tablet,Electronics,Hanoi,1,575.31,719.14
+ORD00204,2025-06-14,Keyboard,Accessories,Ho Chi Minh City,6,61.66,406.96
+ORD00205,2025-11-03,Headphones,Accessories,Da Nang,1,92.84,116.05
+ORD00206,2025-09-06,Headphones,Accessories,Hanoi,9,97.31,875.79
+ORD00207,2025-09-19,Keyboard,Accessories,Can Tho,1,56.82,56.82
+ORD00208,2025-10-29,Headphones,Accessories,Hanoi,9,94.67,852.03
+ORD00209,2025-10-14,Mouse,Accessories,Da Nang,8,25.35,202.8
+ORD00210,2025-11-09,Tablet,Electronics,Ho Chi Minh City,3,616.91,2313.41
+ORD00211,2025-05-22,Webcam,Accessories,Ho Chi Minh City,6,81.55,489.3
+ORD00212,2025-11-12,Mouse,Accessories,Da Nang,5,24.25,151.56
+ORD00213,2025-05-08,Mouse,Accessories,Hanoi,8,25.14,201.12
+ORD00214,2025-04-23,Keyboard,Accessories,Ho Chi Minh City,2,58.81,117.62
+ORD00215,2025-12-26,Tablet,Electronics,Ho Chi Minh City,2,615.04,1537.6
+ORD00216,2025-02-16,Mouse,Accessories,Hanoi,6,26.14,156.84
+ORD00217,2025-02-11,Smartphone,Electronics,Ho Chi Minh City,2,820.13,1640.26
+ORD00218,2025-02-02,Webcam,Accessories,Ho Chi Minh City,5,74.15,370.75
+ORD00219,2025-01-20,Keyboard,Accessories,Hanoi,8,60.65,485.2
+ORD00220,2025-03-11,Smartphone,Electronics,Can Tho,2,746.27,1492.54
+ORD00221,2025-06-02,Tablet,Electronics,Ho Chi Minh City,1,610.63,671.69
+ORD00222,2025-12-08,Keyboard,Accessories,Da Nang,10,62.56,782.0
+ORD00223,2025-08-03,Laptop,Electronics,Ho Chi Minh City,2,1570.18,3140.36
+ORD00224,2025-11-27,Mouse,Accessories,Hanoi,8,25.55,255.5
+ORD00225,2025-08-15,Smartphone,Electronics,Ho Chi Minh City,3,788.79,2366.37
+ORD00226,2025-12-11,Mouse,Accessories,Ho Chi Minh City,3,22.92,85.95
+ORD00227,2025-08-08,Webcam,Accessories,Hanoi,5,76.03,380.15
+ORD00228,2025-12-09,Webcam,Accessories,Hai Phong,8,75.7,757.0
+ORD00229,2025-12-02,Mouse,Accessories,Hanoi,6,25.23,189.22
+ORD00230,2025-07-26,Mouse,Accessories,Ho Chi Minh City,6,23.1,152.46
+ORD00231,2025-03-03,Keyboard,Accessories,Ho Chi Minh City,9,56.18,505.62
+ORD00232,2025-09-26,Mouse,Accessories,Hanoi,2,23.63,47.26
+ORD00233,2025-07-03,Keyboard,Accessories,Ho Chi Minh City,5,54.58,300.19
+ORD00234,2025-09-24,Mouse,Accessories,Hanoi,5,25.95,129.75
+ORD00235,2025-03-30,Mouse,Accessories,Ho Chi Minh City,4,23.76,95.04
+ORD00236,2025-11-01,Webcam,Accessories,Hanoi,6,74.74,560.55
+ORD00237,2025-12-09,Headphones,Accessories,Hanoi,6,102.62,769.65
+ORD00238,2025-12-06,Mouse,Accessories,Ho Chi Minh City,6,22.75,170.62
+ORD00239,2025-12-12,Keyboard,Accessories,Hanoi,8,60.53,605.3
+ORD00240,2025-05-28,Headphones,Accessories,Hanoi,7,92.56,647.92
+ORD00241,2025-10-18,Tablet,Electronics,Hanoi,2,603.77,1207.54
+ORD00242,2025-02-12,Monitor,Electronics,Da Nang,4,358.59,1434.36
+ORD00243,2025-05-14,Tablet,Electronics,Hanoi,1,609.5,609.5
+ORD00244,2025-10-29,Mouse,Accessories,Hai Phong,1,23.84,23.84
+ORD00245,2025-11-19,Headphones,Accessories,Hanoi,5,100.45,627.81
+ORD00246,2025-08-20,Mouse,Accessories,Hanoi,9,23.0,207.0
+ORD00247,2025-08-14,Headphones,Accessories,Hanoi,2,93.9,187.8
+ORD00248,2025-03-19,Mouse,Accessories,Can Tho,4,23.68,94.72
+ORD00249,2025-10-18,Laptop,Electronics,Hanoi,2,1435.17,2870.34
+ORD00250,2025-05-20,Headphones,Accessories,Hanoi,9,99.24,893.16
+ORD00251,2025-10-20,Headphones,Accessories,Hanoi,10,96.1,961.0
+ORD00252,2025-12-06,Webcam,Accessories,Ho Chi Minh City,1,77.47,96.84
+ORD00253,2025-10-20,Headphones,Accessories,Da Nang,4,91.92,367.68
+ORD00254,2025-02-19,Headphones,Accessories,Ho Chi Minh City,10,96.36,963.6
+ORD00255,2025-08-27,Headphones,Accessories,Ho Chi Minh City,10,91.19,911.9
+ORD00256,2025-06-23,Headphones,Accessories,Hai Phong,4,102.33,450.25
+ORD00257,2025-10-30,Laptop,Electronics,Hai Phong,3,1405.69,4217.07
+ORD00258,2025-05-21,Headphones,Accessories,Da Nang,6,99.33,595.98
+ORD00259,2025-01-27,Keyboard,Accessories,Ho Chi Minh City,3,60.63,181.89
+ORD00260,2025-12-27,Webcam,Accessories,Ho Chi Minh City,5,80.7,504.38
+ORD00261,2025-03-06,Monitor,Electronics,Ho Chi Minh City,1,333.39,333.39
+ORD00262,2025-05-10,Mouse,Accessories,Hai Phong,1,24.78,24.78
+ORD00263,2025-03-27,Webcam,Accessories,Ho Chi Minh City,2,75.89,151.78
+ORD00264,2025-04-30,Tablet,Electronics,Da Nang,2,559.74,1119.48
+ORD00265,2025-10-10,Webcam,Accessories,Hanoi,2,74.87,149.74
+ORD00266,2025-10-05,Smartphone,Electronics,Ho Chi Minh City,2,825.11,1650.22
+ORD00267,2025-05-18,Tablet,Electronics,Hanoi,3,594.42,1783.26
+ORD00268,2025-07-22,Monitor,Electronics,Da Nang,3,363.67,1200.11
+ORD00269,2025-05-04,Laptop,Electronics,Ho Chi Minh City,2,1551.72,3103.44
+ORD00270,2025-04-07,Monitor,Electronics,Da Nang,4,323.29,1293.16
+ORD00271,2025-06-17,Mouse,Accessories,Hanoi,3,25.33,83.59
+ORD00272,2025-12-22,Smartphone,Electronics,Can Tho,2,746.45,1866.12
+ORD00273,2025-04-28,Laptop,Electronics,Da Nang,2,1500.24,3000.48
+ORD00274,2025-08-09,Headphones,Accessories,Ho Chi Minh City,2,99.62,199.24
+ORD00275,2025-06-28,Smartphone,Electronics,Da Nang,2,836.11,1839.44
+ORD00276,2025-12-19,Webcam,Accessories,Da Nang,3,83.49,313.09
+ORD00277,2025-05-21,Keyboard,Accessories,Hanoi,6,62.16,372.96
+ORD00278,2025-05-31,Mouse,Accessories,Hanoi,9,24.98,224.82
+ORD00279,2025-03-24,Mouse,Accessories,Hai Phong,1,24.37,24.37
+ORD00280,2025-09-14,Headphones,Accessories,Hai Phong,3,101.59,304.77
+ORD00281,2025-10-15,Keyboard,Accessories,Hanoi,9,60.91,548.19
+ORD00282,2025-09-12,Mouse,Accessories,Hanoi,8,22.52,180.16
+ORD00283,2025-08-05,Monitor,Electronics,Ho Chi Minh City,5,360.49,1802.45
+ORD00284,2025-01-18,Mouse,Accessories,Hanoi,1,23.5,23.5
+ORD00285,2025-01-25,Mouse,Accessories,Da Nang,5,26.02,130.1
+ORD00286,2025-03-30,Mouse,Accessories,Can Tho,9,23.4,210.6
+ORD00287,2025-09-14,Headphones,Accessories,Ho Chi Minh City,5,95.91,479.55
+ORD00288,2025-09-11,Headphones,Accessories,Hanoi,5,95.37,476.85
+ORD00289,2025-07-27,Mouse,Accessories,Can Tho,1,23.05,25.36
+ORD00290,2025-03-19,Headphones,Accessories,Can Tho,7,104.47,731.29
+ORD00291,2025-04-15,Keyboard,Accessories,Ho Chi Minh City,6,58.26,349.56
+ORD00292,2025-06-06,Mouse,Accessories,Ho Chi Minh City,10,23.51,258.61
+ORD00293,2025-01-13,Webcam,Accessories,Da Nang,4,80.08,320.32
+ORD00294,2025-12-18,Mouse,Accessories,Hanoi,4,23.84,119.2
+ORD00295,2025-01-16,Headphones,Accessories,Hai Phong,7,94.12,658.84
+ORD00296,2025-09-04,Keyboard,Accessories,Hanoi,9,62.18,559.62
+ORD00297,2025-10-03,Mouse,Accessories,Ho Chi Minh City,4,26.19,104.76
+ORD00298,2025-12-23,Keyboard,Accessories,Hanoi,7,55.35,484.31
+ORD00299,2025-06-29,Monitor,Electronics,Ho Chi Minh City,2,340.36,748.79
+ORD00300,2025-06-28,Smartphone,Electronics,Da Nang,3,767.65,2533.24
+ORD00301,2025-06-20,Headphones,Accessories,Hai Phong,4,96.27,423.59
+ORD00302,2025-12-12,Mouse,Accessories,Ho Chi Minh City,4,25.67,128.35
+ORD00303,2025-06-18,Mouse,Accessories,Hanoi,1,24.38,26.82
+ORD00304,2025-03-01,Keyboard,Accessories,Ho Chi Minh City,7,61.84,432.88
+ORD00305,2025-05-10,Mouse,Accessories,Hai Phong,2,25.72,51.44
+ORD00306,2025-03-01,Keyboard,Accessories,Hanoi,8,57.91,463.28
+ORD00307,2025-01-20,Mouse,Accessories,Hanoi,7,23.22,162.54
+ORD00308,2025-01-02,Headphones,Accessories,Hanoi,10,95.33,953.3
+ORD00309,2025-05-29,Tablet,Electronics,Hai Phong,1,574.93,574.93
+ORD00310,2025-04-07,Keyboard,Accessories,Ho Chi Minh City,10,56.34,563.4
+ORD00311,2025-02-25,Tablet,Electronics,Ho Chi Minh City,3,556.68,1670.04
+ORD00312,2025-07-04,Keyboard,Accessories,Hai Phong,7,58.82,452.91
+ORD00313,2025-06-04,Keyboard,Accessories,Hanoi,3,55.8,184.14
+ORD00314,2025-08-01,Mouse,Accessories,Hanoi,9,23.33,209.97
+ORD00315,2025-02-09,Smartphone,Electronics,Can Tho,2,767.58,1535.16
+ORD00316,2025-11-24,Tablet,Electronics,Da Nang,1,623.33,779.16
+ORD00317,2025-03-26,Mouse,Accessories,Ho Chi Minh City,8,24.65,197.2
+ORD00318,2025-07-25,Smartphone,Electronics,Hai Phong,1,811.2,892.32
+ORD00319,2025-08-03,Webcam,Accessories,Hanoi,1,78.89,78.89
+ORD00320,2025-04-29,Tablet,Electronics,Da Nang,2,607.59,1215.18
+ORD00321,2025-05-02,Headphones,Accessories,Can Tho,9,95.36,858.24
+ORD00322,2025-09-21,Mouse,Accessories,Hai Phong,7,24.83,173.81
+ORD00323,2025-04-06,Smartphone,Electronics,Hai Phong,3,733.89,2201.67
+ORD00324,2025-01-05,Webcam,Accessories,Hanoi,8,78.86,630.88
+ORD00325,2025-04-04,Headphones,Accessories,Hanoi,7,94.08,658.56
+ORD00326,2025-07-21,Keyboard,Accessories,Hanoi,3,57.1,188.43
+ORD00327,2025-09-13,Monitor,Electronics,Hai Phong,5,343.27,1716.35
+ORD00328,2025-12-23,Tablet,Electronics,Can Tho,1,585.6,732.0
+ORD00329,2025-11-22,Smartphone,Electronics,Ho Chi Minh City,1,761.63,952.04
+ORD00330,2025-01-17,Mouse,Accessories,Da Nang,8,23.09,184.72
+ORD00331,2025-06-24,Headphones,Accessories,Hanoi,7,99.96,769.69
+ORD00332,2025-06-16,Mouse,Accessories,Can Tho,9,23.6,233.64
+ORD00333,2025-09-27,Tablet,Electronics,Ho Chi Minh City,1,610.95,610.95
+ORD00334,2025-08-27,Monitor,Electronics,Hanoi,3,347.86,1043.58
+ORD00335,2025-10-19,Keyboard,Accessories,Da Nang,2,59.31,118.62
+ORD00336,2025-03-03,Laptop,Electronics,Da Nang,1,1467.92,1467.92
+ORD00337,2025-12-28,Mouse,Accessories,Hanoi,5,23.21,145.06
+ORD00338,2025-04-10,Keyboard,Accessories,Hai Phong,8,62.17,497.36
+ORD00339,2025-01-03,Mouse,Accessories,Ho Chi Minh City,9,24.84,223.56
+ORD00340,2025-12-19,Tablet,Electronics,Hanoi,2,617.23,1543.08
+ORD00341,2025-03-03,Monitor,Electronics,Hanoi,5,359.25,1796.25
+ORD00342,2025-10-29,Mouse,Accessories,Hanoi,8,24.76,198.08
+ORD00343,2025-12-30,Headphones,Accessories,Hanoi,9,98.74,1110.83
+ORD00344,2025-09-10,Headphones,Accessories,Hanoi,3,101.87,305.61
+ORD00345,2025-04-14,Mouse,Accessories,Hai Phong,5,24.36,121.8
+ORD00346,2025-08-05,Keyboard,Accessories,Ho Chi Minh City,2,61.77,123.54
+ORD00347,2025-11-09,Keyboard,Accessories,Da Nang,8,59.46,594.6
+ORD00348,2025-02-16,Headphones,Accessories,Ho Chi Minh City,6,95.73,574.38
+ORD00349,2025-11-29,Mouse,Accessories,Hanoi,1,24.67,30.84
+ORD00350,2025-10-08,Keyboard,Accessories,Da Nang,3,59.55,178.65
+ORD00351,2025-07-10,Webcam,Accessories,Hai Phong,1,77.27,85.0
+ORD00352,2025-02-22,Mouse,Accessories,Ho Chi Minh City,7,24.83,173.81
+ORD00353,2025-03-09,Keyboard,Accessories,Da Nang,1,58.74,58.74
+ORD00354,2025-11-03,Keyboard,Accessories,Ho Chi Minh City,9,56.38,634.27
+ORD00355,2025-03-02,Smartphone,Electronics,Can Tho,2,780.84,1561.68
+ORD00356,2025-04-11,Monitor,Electronics,Can Tho,4,349.16,1396.64
+ORD00357,2025-05-17,Headphones,Accessories,Ho Chi Minh City,8,97.65,781.2
+ORD00358,2025-06-28,Headphones,Accessories,Da Nang,8,94.72,833.54
+ORD00359,2025-07-08,Mouse,Accessories,Hai Phong,5,23.4,128.7
+ORD00360,2025-08-06,Keyboard,Accessories,Da Nang,9,61.41,552.69
+ORD00361,2025-10-28,Smartphone,Electronics,Hanoi,1,762.0,762.0
+ORD00362,2025-09-19,Mouse,Accessories,Hai Phong,1,25.74,25.74
+ORD00363,2025-08-01,Headphones,Accessories,Hanoi,6,98.06,588.36
+ORD00364,2025-03-08,Webcam,Accessories,Da Nang,7,77.56,542.92
+ORD00365,2025-08-01,Mouse,Accessories,Ho Chi Minh City,3,23.7,71.1
+ORD00366,2025-02-21,Keyboard,Accessories,Hanoi,6,54.38,326.28
+ORD00367,2025-03-20,Laptop,Electronics,Can Tho,2,1452.36,2904.72
+ORD00368,2025-07-04,Tablet,Electronics,Da Nang,1,613.67,675.04
+ORD00369,2025-05-16,Keyboard,Accessories,Hanoi,9,57.65,518.85
+ORD00370,2025-06-08,Smartphone,Electronics,Hanoi,3,771.41,2545.65
+ORD00371,2025-12-11,Webcam,Accessories,Hanoi,10,81.5,1018.75
+ORD00372,2025-08-29,Mouse,Accessories,Hanoi,10,23.44,234.4
+ORD00373,2025-02-04,Webcam,Accessories,Ho Chi Minh City,6,74.3,445.8
+ORD00374,2025-01-24,Headphones,Accessories,Ho Chi Minh City,1,93.72,93.72
+ORD00375,2025-12-08,Smartphone,Electronics,Hanoi,3,818.61,3069.79
+ORD00376,2025-12-18,Webcam,Accessories,Hanoi,1,80.86,101.08
+ORD00377,2025-07-24,Smartphone,Electronics,Can Tho,2,824.48,1813.86
+ORD00378,2025-05-06,Headphones,Accessories,Hanoi,3,96.76,290.28
+ORD00379,2025-10-09,Tablet,Electronics,Hai Phong,3,595.27,1785.81
+ORD00380,2025-11-28,Smartphone,Electronics,Ho Chi Minh City,3,752.96,2823.6
+ORD00381,2025-03-21,Webcam,Accessories,Ho Chi Minh City,10,75.99,759.9
+ORD00382,2025-05-21,Webcam,Accessories,Hanoi,10,81.47,814.7
+ORD00383,2025-04-08,Keyboard,Accessories,Da Nang,8,59.13,473.04
+ORD00384,2025-06-30,Mouse,Accessories,Ho Chi Minh City,1,23.39,25.73
+ORD00385,2025-05-18,Webcam,Accessories,Ho Chi Minh City,3,77.48,232.44
+ORD00386,2025-12-30,Smartphone,Electronics,Ho Chi Minh City,1,833.08,1041.35
+ORD00387,2025-07-18,Headphones,Accessories,Ho Chi Minh City,1,101.11,111.22
+ORD00388,2025-09-21,Mouse,Accessories,Da Nang,6,25.11,150.66
+ORD00389,2025-04-14,Monitor,Electronics,Ho Chi Minh City,1,345.82,345.82
+ORD00390,2025-08-23,Keyboard,Accessories,Da Nang,9,59.5,535.5
+ORD00391,2025-10-30,Mouse,Accessories,Can Tho,4,23.11,92.44
+ORD00392,2025-04-20,Smartphone,Electronics,Ho Chi Minh City,1,818.31,818.31
+ORD00393,2025-02-28,Smartphone,Electronics,Hanoi,3,813.87,2441.61
+ORD00394,2025-08-31,Headphones,Accessories,Can Tho,3,93.86,281.58
+ORD00395,2025-11-23,Mouse,Accessories,Ho Chi Minh City,10,25.25,315.62
+ORD00396,2025-09-19,Mouse,Accessories,Ho Chi Minh City,8,23.14,185.12
+ORD00397,2025-06-07,Mouse,Accessories,Ho Chi Minh City,9,23.18,229.48
+ORD00398,2025-09-13,Smartphone,Electronics,Hanoi,3,811.58,2434.74
+ORD00399,2025-08-06,Tablet,Electronics,Hanoi,2,547.09,1094.18
+ORD00400,2025-10-13,Monitor,Electronics,Hanoi,2,320.21,640.42
+ORD00401,2025-10-15,Webcam,Accessories,Can Tho,9,79.76,717.84
+ORD00402,2025-04-17,Keyboard,Accessories,Can Tho,10,58.31,583.1
+ORD00403,2025-08-25,Mouse,Accessories,Hanoi,5,22.92,114.6
+ORD00404,2025-10-23,Mouse,Accessories,Hanoi,3,22.87,68.61
+ORD00405,2025-10-22,Monitor,Electronics,Ho Chi Minh City,3,365.88,1097.64
+ORD00406,2025-10-15,Headphones,Accessories,Da Nang,2,101.16,202.32
+ORD00407,2025-10-02,Mouse,Accessories,Ho Chi Minh City,4,25.32,101.28
+ORD00408,2025-02-02,Tablet,Electronics,Hanoi,2,623.73,1247.46
+ORD00409,2025-09-27,Tablet,Electronics,Ho Chi Minh City,1,584.05,584.05
+ORD00410,2025-03-10,Keyboard,Accessories,Hanoi,2,62.56,125.12
+ORD00411,2025-07-23,Headphones,Accessories,Can Tho,9,94.54,935.95
+ORD00412,2025-09-24,Headphones,Accessories,Da Nang,5,93.97,469.85
+ORD00413,2025-05-08,Headphones,Accessories,Ho Chi Minh City,1,96.09,96.09
+ORD00414,2025-07-06,Webcam,Accessories,Hanoi,1,82.35,90.59
+ORD00415,2025-07-07,Headphones,Accessories,Hanoi,8,104.84,922.59
+ORD00416,2025-05-21,Mouse,Accessories,Hai Phong,8,25.52,204.16
+ORD00417,2025-10-19,Mouse,Accessories,Ho Chi Minh City,5,22.54,112.7
+ORD00418,2025-08-02,Monitor,Electronics,Can Tho,3,361.47,1084.41
+ORD00419,2025-08-03,Laptop,Electronics,Hanoi,2,1417.19,2834.38
+ORD00420,2025-04-21,Headphones,Accessories,Hanoi,9,102.51,922.59
+ORD00421,2025-12-31,Headphones,Accessories,Da Nang,4,99.15,495.75
+ORD00422,2025-12-21,Smartphone,Electronics,Da Nang,1,761.06,951.32
+ORD00423,2025-05-16,Mouse,Accessories,Hanoi,1,24.73,24.73
+ORD00424,2025-02-02,Tablet,Electronics,Hanoi,2,615.49,1230.98
+ORD00425,2025-05-06,Mouse,Accessories,Ho Chi Minh City,2,24.02,48.04
+ORD00426,2025-05-03,Smartphone,Electronics,Ho Chi Minh City,2,730.4,1460.8
+ORD00427,2025-04-22,Mouse,Accessories,Can Tho,4,23.21,92.84
+ORD00428,2025-04-24,Mouse,Accessories,Hanoi,3,24.36,73.08
+ORD00429,2025-05-18,Headphones,Accessories,Hanoi,6,103.47,620.82
+ORD00430,2025-05-15,Webcam,Accessories,Hanoi,4,75.62,302.48
+ORD00431,2025-05-31,Keyboard,Accessories,Ho Chi Minh City,5,59.11,295.55
+ORD00432,2025-05-12,Monitor,Electronics,Ho Chi Minh City,2,320.66,641.32
+ORD00433,2025-01-31,Headphones,Accessories,Hanoi,7,96.83,677.81
+ORD00434,2025-12-31,Mouse,Accessories,Hai Phong,7,23.45,205.19
+ORD00435,2025-01-12,Headphones,Accessories,Can Tho,3,91.22,273.66
+ORD00436,2025-10-19,Mouse,Accessories,Da Nang,4,23.67,94.68
+ORD00437,2025-08-19,Laptop,Electronics,Can Tho,2,1388.98,2777.96
+ORD00438,2025-10-16,Mouse,Accessories,Hanoi,5,24.35,121.75
+ORD00439,2025-04-02,Headphones,Accessories,Hanoi,4,99.26,397.04
+ORD00440,2025-09-26,Smartphone,Electronics,Da Nang,3,752.22,2256.66
+ORD00441,2025-07-18,Mouse,Accessories,Hanoi,6,22.9,151.14
+ORD00442,2025-07-22,Tablet,Electronics,Ho Chi Minh City,2,572.92,1260.42
+ORD00443,2025-05-29,Webcam,Accessories,Hanoi,6,73.03,438.18
+ORD00444,2025-04-03,Mouse,Accessories,Da Nang,10,22.65,226.5
+ORD00445,2025-08-29,Tablet,Electronics,Ho Chi Minh City,3,602.36,1807.08
+ORD00446,2025-10-19,Monitor,Electronics,Hanoi,2,360.77,721.54
+ORD00447,2025-01-12,Laptop,Electronics,Ho Chi Minh City,1,1390.37,1390.37
+ORD00448,2025-05-18,Keyboard,Accessories,Can Tho,2,59.73,119.46
+ORD00449,2025-09-25,Smartphone,Electronics,Ho Chi Minh City,2,831.91,1663.82
+ORD00450,2025-06-08,Keyboard,Accessories,Hanoi,4,62.07,273.11
+ORD00451,2025-05-15,Mouse,Accessories,Ho Chi Minh City,4,22.72,90.88
+ORD00452,2025-04-11,Keyboard,Accessories,Ho Chi Minh City,2,62.3,124.6
+ORD00453,2025-12-31,Smartphone,Electronics,Hanoi,1,796.33,995.41
+ORD00454,2025-12-09,Headphones,Accessories,Da Nang,10,97.68,1221.0
+ORD00455,2025-12-17,Smartphone,Electronics,Ho Chi Minh City,3,778.26,2918.47
+ORD00456,2025-07-21,Smartphone,Electronics,Ho Chi Minh City,3,781.91,2580.3
+ORD00457,2025-08-25,Monitor,Electronics,Hai Phong,3,328.42,985.26
+ORD00458,2025-03-20,Tablet,Electronics,Da Nang,2,605.03,1210.06
+ORD00459,2025-06-02,Headphones,Accessories,Da Nang,8,92.24,811.71
+ORD00460,2025-06-13,Monitor,Electronics,Can Tho,2,319.62,703.16
+ORD00461,2025-10-16,Keyboard,Accessories,Da Nang,6,57.36,344.16
+ORD00462,2025-09-24,Smartphone,Electronics,Can Tho,3,787.29,2361.87
+ORD00463,2025-08-12,Monitor,Electronics,Ho Chi Minh City,1,344.89,344.89
+ORD00464,2025-08-25,Smartphone,Electronics,Hanoi,3,748.19,2244.57
+ORD00465,2025-09-30,Tablet,Electronics,Hanoi,2,565.47,1130.94
+ORD00466,2025-10-02,Monitor,Electronics,Hanoi,2,341.22,682.44
+ORD00467,2025-12-08,Smartphone,Electronics,Can Tho,3,765.56,2870.85
+ORD00468,2025-11-19,Tablet,Electronics,Da Nang,2,553.34,1383.35
+ORD00469,2025-12-10,Tablet,Electronics,Can Tho,2,628.72,1571.8
+ORD00470,2025-12-18,Mouse,Accessories,Hanoi,4,23.74,118.7
+ORD00471,2025-09-30,Keyboard,Accessories,Ho Chi Minh City,3,62.58,187.74
+ORD00472,2025-12-22,Webcam,Accessories,Da Nang,9,77.71,874.24
+ORD00473,2025-11-17,Mouse,Accessories,Hanoi,6,23.61,177.07
+ORD00474,2025-07-04,Smartphone,Electronics,Hai Phong,3,826.78,2728.37
+ORD00475,2025-08-19,Mouse,Accessories,Ho Chi Minh City,3,24.12,72.36
+ORD00476,2025-02-27,Monitor,Electronics,Ho Chi Minh City,5,337.62,1688.1
+ORD00477,2025-10-03,Headphones,Accessories,Ho Chi Minh City,7,94.69,662.83
+ORD00478,2025-09-04,Keyboard,Accessories,Hanoi,7,55.23,386.61
+ORD00479,2025-04-19,Tablet,Electronics,Hanoi,2,575.27,1150.54
+ORD00480,2025-10-28,Mouse,Accessories,Ho Chi Minh City,1,24.92,24.92
+ORD00481,2025-03-12,Laptop,Electronics,Hai Phong,3,1475.92,4427.76
+ORD00482,2025-09-24,Headphones,Accessories,Ho Chi Minh City,5,96.6,483.0
+ORD00483,2025-09-23,Laptop,Electronics,Hanoi,2,1458.36,2916.72
+ORD00484,2025-03-02,Keyboard,Accessories,Can Tho,9,57.32,515.88
+ORD00485,2025-04-06,Monitor,Electronics,Hai Phong,1,330.07,330.07
+ORD00486,2025-02-06,Keyboard,Accessories,Hanoi,2,57.51,115.02
+ORD00487,2025-09-02,Smartphone,Electronics,Hanoi,3,748.18,2244.54
+ORD00488,2025-11-29,Mouse,Accessories,Hai Phong,1,25.33,31.66
+ORD00489,2025-08-23,Monitor,Electronics,Hanoi,2,345.79,691.58
+ORD00490,2025-03-23,Laptop,Electronics,Hanoi,3,1494.37,4483.11
+ORD00491,2025-07-10,Mouse,Accessories,Hai Phong,2,22.98,50.56
+ORD00492,2025-12-18,Keyboard,Accessories,Hanoi,7,54.13,473.64
+ORD00493,2025-09-18,Webcam,Accessories,Ho Chi Minh City,6,83.19,499.14
+ORD00494,2025-10-14,Headphones,Accessories,Hai Phong,3,101.3,303.9
+ORD00495,2025-05-10,Webcam,Accessories,Hanoi,5,82.84,414.2
+ORD00496,2025-05-16,Webcam,Accessories,Hai Phong,3,77.49,232.47
+ORD00497,2025-04-18,Mouse,Accessories,Da Nang,7,23.8,166.6
+ORD00498,2025-05-30,Mouse,Accessories,Hanoi,9,23.34,210.06
+ORD00499,2025-09-11,Webcam,Accessories,Hanoi,3,83.78,251.34
+ORD00500,2025-06-11,Laptop,Electronics,Hanoi,2,1387.67,3052.87
+ORD00501,2025-03-22,Mouse,Accessories,Hanoi,3,23.22,69.66
+ORD00502,2025-12-16,Mouse,Accessories,Can Tho,5,25.8,161.25
+ORD00503,2025-03-12,Webcam,Accessories,Hanoi,6,83.9,503.4
+ORD00504,2025-07-15,Monitor,Electronics,Hanoi,5,348.69,1917.8
+ORD00505,2025-08-24,Mouse,Accessories,Hanoi,7,24.64,172.48
+ORD00506,2025-01-06,Mouse,Accessories,Hanoi,4,23.62,94.48
+ORD00507,2025-02-02,Keyboard,Accessories,Da Nang,8,57.42,459.36
+ORD00508,2025-05-09,Headphones,Accessories,Hanoi,9,104.39,939.51
+ORD00509,2025-08-18,Headphones,Accessories,Ho Chi Minh City,2,90.22,180.44
+ORD00510,2025-01-12,Webcam,Accessories,Can Tho,7,81.59,571.13
+ORD00511,2025-11-23,Tablet,Electronics,Ho Chi Minh City,2,624.12,1560.3
+ORD00512,2025-12-05,Webcam,Accessories,Da Nang,8,82.84,828.4
+ORD00513,2025-09-15,Mouse,Accessories,Da Nang,6,23.88,143.28
+ORD00514,2025-05-06,Smartphone,Electronics,Hanoi,1,730.35,730.35
+ORD00515,2025-11-03,Mouse,Accessories,Hanoi,7,25.39,222.16
+ORD00516,2025-05-24,Keyboard,Accessories,Hai Phong,9,54.96,494.64
+ORD00517,2025-12-17,Monitor,Electronics,Hanoi,2,315.94,789.85
+ORD00518,2025-05-21,Keyboard,Accessories,Hai Phong,7,55.08,385.56
+ORD00519,2025-01-22,Headphones,Accessories,Hanoi,5,98.72,493.6
+ORD00520,2025-04-03,Headphones,Accessories,Ho Chi Minh City,1,102.84,102.84
+ORD00521,2025-12-24,Mouse,Accessories,Da Nang,10,25.21,315.12
+ORD00522,2025-04-10,Webcam,Accessories,Ho Chi Minh City,8,81.93,655.44
+ORD00523,2025-10-30,Webcam,Accessories,Ho Chi Minh City,3,82.35,247.05
+ORD00524,2025-05-25,Webcam,Accessories,Da Nang,2,73.37,146.74
+ORD00525,2025-06-26,Keyboard,Accessories,Hanoi,4,58.08,255.55
+ORD00526,2025-11-29,Keyboard,Accessories,Hai Phong,7,55.32,484.05
+ORD00527,2025-02-05,Mouse,Accessories,Hanoi,7,22.71,158.97
+ORD00528,2025-11-26,Smartphone,Electronics,Hanoi,1,836.39,1045.49
+ORD00529,2025-04-09,Headphones,Accessories,Hai Phong,4,95.18,380.72
+ORD00530,2025-01-22,Keyboard,Accessories,Ho Chi Minh City,4,59.12,236.48
+ORD00531,2025-08-06,Mouse,Accessories,Hanoi,10,24.77,247.7
+ORD00532,2025-04-23,Keyboard,Accessories,Hanoi,6,58.21,349.26
+ORD00533,2025-01-02,Keyboard,Accessories,Ho Chi Minh City,1,54.99,54.99
+ORD00534,2025-05-21,Mouse,Accessories,Hai Phong,8,25.19,201.52
+ORD00535,2025-09-17,Mouse,Accessories,Hanoi,7,24.39,170.73
+ORD00536,2025-10-14,Mouse,Accessories,Hai Phong,10,25.31,253.1
+ORD00537,2025-06-09,Headphones,Accessories,Hai Phong,3,92.77,306.14
+ORD00538,2025-01-13,Monitor,Electronics,Hai Phong,4,344.14,1376.56
+ORD00539,2025-10-24,Keyboard,Accessories,Da Nang,4,54.81,219.24
+ORD00540,2025-09-20,Smartphone,Electronics,Hai Phong,1,780.87,780.87
+ORD00541,2025-08-25,Mouse,Accessories,Hanoi,1,23.57,23.57
+ORD00542,2025-02-24,Tablet,Electronics,Hanoi,2,599.53,1199.06
+ORD00543,2025-04-02,Monitor,Electronics,Hanoi,3,366.5,1099.5
+ORD00544,2025-11-21,Headphones,Accessories,Ho Chi Minh City,7,102.0,892.5
+ORD00545,2025-05-05,Webcam,Accessories,Ho Chi Minh City,1,74.1,74.1
+ORD00546,2025-12-17,Headphones,Accessories,Hanoi,1,102.33,127.91
+ORD00547,2025-11-05,Tablet,Electronics,Can Tho,3,608.86,2283.22
+ORD00548,2025-04-08,Keyboard,Accessories,Can Tho,5,60.61,303.05
+ORD00549,2025-03-03,Mouse,Accessories,Ho Chi Minh City,3,22.84,68.52
+ORD00550,2025-03-19,Webcam,Accessories,Ho Chi Minh City,4,77.67,310.68
+ORD00551,2025-12-09,Headphones,Accessories,Ho Chi Minh City,9,99.41,1118.36
+ORD00552,2025-05-28,Headphones,Accessories,Hanoi,7,98.12,686.84
+ORD00553,2025-10-19,Monitor,Electronics,Ho Chi Minh City,5,337.61,1688.05
+ORD00554,2025-10-03,Mouse,Accessories,Hanoi,9,25.22,226.98
+ORD00555,2025-12-06,Smartphone,Electronics,Ho Chi Minh City,3,771.12,2891.7
+ORD00556,2025-08-30,Mouse,Accessories,Ho Chi Minh City,2,24.99,49.98
+ORD00557,2025-10-11,Mouse,Accessories,Can Tho,10,26.21,262.1
+ORD00558,2025-12-01,Keyboard,Accessories,Hanoi,3,57.68,216.3
+ORD00559,2025-06-17,Webcam,Accessories,Ho Chi Minh City,7,80.27,618.08
+ORD00560,2025-05-28,Smartphone,Electronics,Hanoi,2,791.52,1583.04
+ORD00561,2025-12-22,Headphones,Accessories,Ho Chi Minh City,3,98.37,368.89
+ORD00562,2025-02-28,Mouse,Accessories,Da Nang,9,25.69,231.21
+ORD00563,2025-07-10,Laptop,Electronics,Hai Phong,1,1392.88,1532.17
+ORD00564,2025-09-16,Webcam,Accessories,Can Tho,7,73.26,512.82
+ORD00565,2025-07-06,Headphones,Accessories,Da Nang,4,90.29,397.28
+ORD00566,2025-04-17,Smartphone,Electronics,Can Tho,3,785.56,2356.68
+ORD00567,2025-02-26,Keyboard,Accessories,Ho Chi Minh City,3,59.05,177.15
+ORD00568,2025-09-25,Smartphone,Electronics,Hanoi,2,795.37,1590.74
+ORD00569,2025-09-15,Smartphone,Electronics,Da Nang,1,780.07,780.07
+ORD00570,2025-01-03,Mouse,Accessories,Can Tho,3,23.23,69.69
+ORD00571,2025-10-11,Smartphone,Electronics,Da Nang,3,741.22,2223.66
+ORD00572,2025-07-03,Laptop,Electronics,Ho Chi Minh City,3,1409.92,4652.74
+ORD00573,2025-10-30,Laptop,Electronics,Hanoi,2,1443.82,2887.64
+ORD00574,2025-07-19,Monitor,Electronics,Hanoi,2,367.04,807.49
+ORD00575,2025-10-06,Mouse,Accessories,Hai Phong,3,25.45,76.35
+ORD00576,2025-07-06,Smartphone,Electronics,Da Nang,2,782.34,1721.15
+ORD00577,2025-07-08,Keyboard,Accessories,Hai Phong,8,57.27,503.98
+ORD00578,2025-03-18,Mouse,Accessories,Da Nang,5,24.71,123.55
+ORD00579,2025-03-26,Tablet,Electronics,Hanoi,2,578.6,1157.2
+ORD00580,2025-08-14,Headphones,Accessories,Da Nang,1,90.67,90.67
+ORD00581,2025-12-29,Webcam,Accessories,Ho Chi Minh City,7,80.66,705.77
+ORD00582,2025-03-29,Smartphone,Electronics,Can Tho,3,785.43,2356.29
+ORD00583,2025-05-30,Webcam,Accessories,Ho Chi Minh City,3,81.91,245.73
+ORD00584,2025-06-17,Smartphone,Electronics,Hai Phong,1,801.32,881.45
+ORD00585,2025-10-10,Monitor,Electronics,Ho Chi Minh City,4,347.21,1388.84
+ORD00586,2025-10-23,Webcam,Accessories,Ho Chi Minh City,5,79.34,396.7
+ORD00587,2025-02-25,Headphones,Accessories,Hanoi,2,99.14,198.28
+ORD00588,2025-12-20,Headphones,Accessories,Hanoi,2,90.58,226.45
+ORD00589,2025-04-06,Mouse,Accessories,Da Nang,8,23.32,186.56
+ORD00590,2025-08-29,Mouse,Accessories,Hanoi,8,23.66,189.28
+ORD00591,2025-04-12,Mouse,Accessories,Hanoi,9,25.27,227.43
+ORD00592,2025-06-11,Mouse,Accessories,Hai Phong,5,25.81,141.95
+ORD00593,2025-03-09,Tablet,Electronics,Da Nang,3,624.7,1874.1
+ORD00594,2025-06-16,Headphones,Accessories,Da Nang,10,91.26,1003.86
+ORD00595,2025-07-15,Headphones,Accessories,Hanoi,2,90.96,200.11
+ORD00596,2025-11-02,Mouse,Accessories,Can Tho,1,22.63,28.29
+ORD00597,2025-11-13,Headphones,Accessories,Hanoi,9,93.79,1055.14
+ORD00598,2025-03-07,Smartphone,Electronics,Ho Chi Minh City,1,726.29,726.29
+ORD00599,2025-03-05,Tablet,Electronics,Hanoi,2,565.0,1130.0
+ORD00600,2025-11-10,Tablet,Electronics,Ho Chi Minh City,1,581.18,726.47
+ORD00601,2025-01-04,Tablet,Electronics,Da Nang,3,617.91,1853.73
+ORD00602,2025-03-07,Monitor,Electronics,Hai Phong,5,324.56,1622.8
+ORD00603,2025-11-02,Mouse,Accessories,Ho Chi Minh City,4,25.6,128.0
+ORD00604,2025-08-24,Webcam,Accessories,Ho Chi Minh City,7,82.94,580.58
+ORD00605,2025-12-01,Laptop,Electronics,Da Nang,1,1439.79,1799.74
+ORD00606,2025-12-08,Smartphone,Electronics,Da Nang,3,816.3,3061.12
+ORD00607,2025-09-25,Smartphone,Electronics,Da Nang,1,743.7,743.7
+ORD00608,2025-04-20,Webcam,Accessories,Hai Phong,1,72.71,72.71
+ORD00609,2025-01-19,Mouse,Accessories,Hanoi,1,22.88,22.88
+ORD00610,2025-05-05,Monitor,Electronics,Hai Phong,2,337.99,675.98
+ORD00611,2025-05-10,Webcam,Accessories,Hai Phong,3,74.67,224.01
+ORD00612,2025-11-29,Keyboard,Accessories,Da Nang,4,57.71,288.55
+ORD00613,2025-11-11,Smartphone,Electronics,Hanoi,3,777.18,2914.43
+ORD00614,2025-04-25,Webcam,Accessories,Ho Chi Minh City,8,72.01,576.08
+ORD00615,2025-01-09,Smartphone,Electronics,Da Nang,1,796.7,796.7
+ORD00616,2025-04-20,Monitor,Electronics,Hanoi,5,358.27,1791.35
+ORD00617,2025-08-15,Monitor,Electronics,Hanoi,5,337.57,1687.85
+ORD00618,2025-01-17,Headphones,Accessories,Ho Chi Minh City,3,103.57,310.71
+ORD00619,2025-03-06,Headphones,Accessories,Hanoi,4,102.99,411.96
+ORD00620,2025-04-30,Webcam,Accessories,Ho Chi Minh City,5,81.74,408.7
+ORD00621,2025-01-29,Smartphone,Electronics,Da Nang,2,738.4,1476.8
+ORD00622,2025-08-06,Mouse,Accessories,Hai Phong,3,23.08,69.24
+ORD00623,2025-12-26,Mouse,Accessories,Can Tho,9,23.68,266.4
+ORD00624,2025-02-19,Smartphone,Electronics,Hanoi,1,736.03,736.03
+ORD00625,2025-03-05,Mouse,Accessories,Da Nang,4,26.04,104.16
+ORD00626,2025-04-16,Tablet,Electronics,Hanoi,3,581.53,1744.59
+ORD00627,2025-06-02,Monitor,Electronics,Ho Chi Minh City,3,331.88,1095.2
+ORD00628,2025-10-24,Webcam,Accessories,Hai Phong,4,81.4,325.6
+ORD00629,2025-12-18,Keyboard,Accessories,Ho Chi Minh City,9,54.16,609.3
+ORD00630,2025-11-18,Monitor,Electronics,Hanoi,1,341.17,426.46
+ORD00631,2025-12-25,Mouse,Accessories,Hanoi,7,25.73,225.14
+ORD00632,2025-11-17,Laptop,Electronics,Ho Chi Minh City,3,1428.19,5355.71
+ORD00633,2025-05-29,Headphones,Accessories,Hanoi,3,103.17,309.51
+ORD00634,2025-07-16,Headphones,Accessories,Ho Chi Minh City,7,99.51,766.23
+ORD00635,2025-12-14,Mouse,Accessories,Ho Chi Minh City,7,26.09,228.29
+ORD00636,2025-01-11,Webcam,Accessories,Hanoi,1,72.37,72.37
+ORD00637,2025-09-15,Tablet,Electronics,Ho Chi Minh City,1,549.16,549.16
+ORD00638,2025-01-15,Webcam,Accessories,Ho Chi Minh City,6,82.05,492.3
+ORD00639,2025-10-25,Mouse,Accessories,Da Nang,5,26.09,130.45
+ORD00640,2025-02-07,Tablet,Electronics,Hai Phong,2,560.61,1121.22
+ORD00641,2025-07-03,Smartphone,Electronics,Ho Chi Minh City,1,772.97,850.27
+ORD00642,2025-05-24,Headphones,Accessories,Ho Chi Minh City,2,99.82,199.64
+ORD00643,2025-07-22,Laptop,Electronics,Can Tho,3,1385.57,4572.38
+ORD00644,2025-02-20,Keyboard,Accessories,Ho Chi Minh City,4,61.59,246.36
+ORD00645,2025-06-05,Webcam,Accessories,Ho Chi Minh City,1,80.42,88.46
+ORD00646,2025-07-02,Webcam,Accessories,Hanoi,4,82.56,363.26
+ORD00647,2025-06-11,Headphones,Accessories,Hai Phong,5,104.78,576.29
+ORD00648,2025-03-29,Headphones,Accessories,Ho Chi Minh City,7,102.65,718.55
+ORD00649,2025-08-26,Headphones,Accessories,Hanoi,7,96.22,673.54
+ORD00650,2025-01-26,Mouse,Accessories,Ho Chi Minh City,7,23.01,161.07
+ORD00651,2025-08-28,Smartphone,Electronics,Hanoi,2,817.54,1635.08
+ORD00652,2025-08-22,Keyboard,Accessories,Da Nang,1,57.58,57.58
+ORD00653,2025-05-13,Webcam,Accessories,Hanoi,9,80.44,723.96
+ORD00654,2025-08-18,Webcam,Accessories,Hai Phong,5,80.11,400.55
+ORD00655,2025-01-29,Mouse,Accessories,Can Tho,10,24.48,244.8
+ORD00656,2025-02-14,Mouse,Accessories,Hanoi,10,23.29,232.9
+ORD00657,2025-12-04,Mouse,Accessories,Hanoi,6,22.85,171.38
+ORD00658,2025-01-13,Headphones,Accessories,Hanoi,10,98.61,986.1
+ORD00659,2025-01-17,Laptop,Electronics,Hanoi,1,1441.06,1441.06
+ORD00660,2025-03-15,Tablet,Electronics,Ho Chi Minh City,3,558.63,1675.89
+ORD00661,2025-06-12,Webcam,Accessories,Hanoi,9,74.0,732.6
+ORD00662,2025-01-22,Mouse,Accessories,Hanoi,6,23.69,142.14
+ORD00663,2025-11-28,Headphones,Accessories,Hanoi,1,92.07,115.09
+ORD00664,2025-12-03,Monitor,Electronics,Hanoi,2,343.73,859.33
+ORD00665,2025-12-11,Keyboard,Accessories,Ho Chi Minh City,9,59.34,667.58
+ORD00666,2025-09-19,Monitor,Electronics,Hanoi,2,320.44,640.88
+ORD00667,2025-05-29,Laptop,Electronics,Hanoi,2,1505.42,3010.84
+ORD00668,2025-11-11,Headphones,Accessories,Ho Chi Minh City,4,96.66,483.3
+ORD00669,2025-07-28,Keyboard,Accessories,Ho Chi Minh City,7,54.17,417.11
+ORD00670,2025-11-17,Webcam,Accessories,Hai Phong,2,72.96,182.4
+ORD00671,2025-12-02,Webcam,Accessories,Hanoi,5,72.1,450.62
+ORD00672,2025-06-22,Headphones,Accessories,Can Tho,5,98.26,540.43
+ORD00673,2025-09-18,Webcam,Accessories,Ho Chi Minh City,8,79.58,636.64
+ORD00674,2025-04-14,Mouse,Accessories,Ho Chi Minh City,9,23.31,209.79
+ORD00675,2025-10-30,Webcam,Accessories,Hanoi,10,72.56,725.6
+ORD00676,2025-04-01,Mouse,Accessories,Can Tho,4,22.85,91.4
+ORD00677,2025-04-20,Mouse,Accessories,Hanoi,3,23.6,70.8
+ORD00678,2025-09-22,Mouse,Accessories,Hanoi,5,22.64,113.2
+ORD00679,2025-08-21,Headphones,Accessories,Hanoi,1,101.68,101.68
+ORD00680,2025-02-11,Headphones,Accessories,Ho Chi Minh City,2,102.25,204.5
+ORD00681,2025-02-20,Tablet,Electronics,Hai Phong,2,558.25,1116.5
+ORD00682,2025-03-15,Laptop,Electronics,Ho Chi Minh City,3,1370.89,4112.67
+ORD00683,2025-08-19,Mouse,Accessories,Ho Chi Minh City,10,24.61,246.1
+ORD00684,2025-12-23,Smartphone,Electronics,Can Tho,2,789.77,1974.42
+ORD00685,2025-08-18,Headphones,Accessories,Can Tho,10,99.3,993.0
+ORD00686,2025-09-23,Headphones,Accessories,Ho Chi Minh City,6,91.67,550.02
+ORD00687,2025-12-20,Headphones,Accessories,Ho Chi Minh City,3,97.73,366.49
+ORD00688,2025-12-06,Smartphone,Electronics,Da Nang,1,781.23,976.54
+ORD00689,2025-11-21,Mouse,Accessories,Da Nang,1,22.59,28.24
+ORD00690,2025-05-16,Mouse,Accessories,Ho Chi Minh City,6,23.41,140.46
+ORD00691,2025-06-03,Keyboard,Accessories,Hai Phong,3,57.87,190.97
+ORD00692,2025-03-13,Keyboard,Accessories,Hai Phong,1,56.1,56.1
+ORD00693,2025-09-10,Monitor,Electronics,Hanoi,2,326.33,652.66
+ORD00694,2025-01-14,Mouse,Accessories,Hanoi,7,25.03,175.21
+ORD00695,2025-12-31,Mouse,Accessories,Ho Chi Minh City,9,25.75,289.69
+ORD00696,2025-01-18,Headphones,Accessories,Hanoi,9,100.14,901.26
+ORD00697,2025-02-15,Keyboard,Accessories,Hanoi,7,54.96,384.72
+ORD00698,2025-08-05,Headphones,Accessories,Hanoi,1,91.39,91.39
+ORD00699,2025-11-14,Headphones,Accessories,Hanoi,4,104.25,521.25
+ORD00700,2025-11-12,Mouse,Accessories,Hanoi,6,24.28,182.1
+ORD00701,2025-08-24,Keyboard,Accessories,Da Nang,8,62.94,503.52
+ORD00702,2025-05-29,Webcam,Accessories,Ho Chi Minh City,6,83.56,501.36
+ORD00703,2025-12-15,Mouse,Accessories,Da Nang,8,23.18,231.8
+ORD00704,2025-10-30,Webcam,Accessories,Da Nang,10,74.5,745.0
+ORD00705,2025-04-22,Mouse,Accessories,Ho Chi Minh City,7,22.77,159.39
+ORD00706,2025-08-30,Mouse,Accessories,Hai Phong,5,24.72,123.6
+ORD00707,2025-03-01,Tablet,Electronics,Hai Phong,1,610.39,610.39
+ORD00708,2025-11-06,Keyboard,Accessories,Hanoi,6,56.01,420.07
+ORD00709,2025-09-19,Smartphone,Electronics,Da Nang,3,814.19,2442.57
+ORD00710,2025-09-15,Mouse,Accessories,Ho Chi Minh City,4,23.86,95.44
+ORD00711,2025-11-14,Laptop,Electronics,Hanoi,1,1464.25,1830.31
+ORD00712,2025-01-05,Smartphone,Electronics,Hanoi,2,742.4,1484.8
+ORD00713,2025-05-31,Monitor,Electronics,Hanoi,3,361.82,1085.46
+ORD00714,2025-12-07,Keyboard,Accessories,Hanoi,8,55.96,559.6
+ORD00715,2025-09-13,Smartphone,Electronics,Hai Phong,2,816.32,1632.64
+ORD00716,2025-11-01,Smartphone,Electronics,Hanoi,3,839.93,3149.74
+ORD00717,2025-05-24,Tablet,Electronics,Hanoi,2,558.92,1117.84
+ORD00718,2025-07-29,Headphones,Accessories,Hanoi,4,99.33,437.05
+ORD00719,2025-09-19,Mouse,Accessories,Hai Phong,7,25.47,178.29
+ORD00720,2025-10-26,Tablet,Electronics,Ho Chi Minh City,2,561.5,1123.0
+ORD00721,2025-08-02,Mouse,Accessories,Hai Phong,1,22.63,22.63
+ORD00722,2025-12-10,Smartphone,Electronics,Ho Chi Minh City,2,793.67,1984.17
+ORD00723,2025-10-12,Smartphone,Electronics,Ho Chi Minh City,2,770.33,1540.66
+ORD00724,2025-05-23,Mouse,Accessories,Ho Chi Minh City,8,23.29,186.32
+ORD00725,2025-01-29,Smartphone,Electronics,Hai Phong,2,752.37,1504.74
+ORD00726,2025-09-10,Mouse,Accessories,Hanoi,2,23.97,47.94
+ORD00727,2025-10-20,Headphones,Accessories,Ho Chi Minh City,7,99.65,697.55
+ORD00728,2025-03-08,Smartphone,Electronics,Ho Chi Minh City,1,754.88,754.88
+ORD00729,2025-03-15,Mouse,Accessories,Hanoi,5,24.99,124.95
+ORD00730,2025-04-14,Smartphone,Electronics,Hanoi,1,836.4,836.4
+ORD00731,2025-11-12,Tablet,Electronics,Da Nang,1,570.69,713.36
+ORD00732,2025-10-31,Webcam,Accessories,Da Nang,6,72.63,435.78
+ORD00733,2025-03-27,Keyboard,Accessories,Da Nang,9,54.97,494.73
+ORD00734,2025-05-05,Webcam,Accessories,Da Nang,8,76.58,612.64
+ORD00735,2025-03-03,Keyboard,Accessories,Ho Chi Minh City,4,62.15,248.6
+ORD00736,2025-06-06,Smartphone,Electronics,Hanoi,2,783.6,1723.92
+ORD00737,2025-12-12,Webcam,Accessories,Ho Chi Minh City,8,77.43,774.3
+ORD00738,2025-05-24,Smartphone,Electronics,Ho Chi Minh City,2,725.95,1451.9
+ORD00739,2025-07-24,Monitor,Electronics,Hanoi,3,355.88,1174.4
+ORD00740,2025-06-14,Smartphone,Electronics,Can Tho,2,798.52,1756.74
+ORD00741,2025-06-22,Mouse,Accessories,Da Nang,5,25.6,140.8
+ORD00742,2025-10-12,Monitor,Electronics,Hanoi,4,323.03,1292.12
+ORD00743,2025-07-25,Monitor,Electronics,Hai Phong,3,323.58,1067.81
+ORD00744,2025-01-16,Headphones,Accessories,Da Nang,1,98.11,98.11
+ORD00745,2025-07-23,Webcam,Accessories,Hai Phong,7,74.44,573.19
+ORD00746,2025-03-01,Keyboard,Accessories,Ho Chi Minh City,1,54.67,54.67
+ORD00747,2025-03-22,Smartphone,Electronics,Ho Chi Minh City,2,793.08,1586.16
+ORD00748,2025-08-19,Headphones,Accessories,Ho Chi Minh City,2,103.82,207.64
+ORD00749,2025-10-19,Keyboard,Accessories,Da Nang,4,57.02,228.08
+ORD00750,2025-08-20,Headphones,Accessories,Da Nang,3,104.62,313.86
+ORD00751,2025-01-28,Webcam,Accessories,Hai Phong,1,83.68,83.68
+ORD00752,2025-03-18,Webcam,Accessories,Da Nang,9,77.27,695.43
+ORD00753,2025-08-31,Monitor,Electronics,Hanoi,4,351.06,1404.24
+ORD00754,2025-04-20,Webcam,Accessories,Hanoi,2,73.37,146.74
+ORD00755,2025-01-12,Headphones,Accessories,Ho Chi Minh City,8,97.21,777.68
+ORD00756,2025-07-04,Mouse,Accessories,Hai Phong,8,23.18,203.98
+ORD00757,2025-02-16,Headphones,Accessories,Hanoi,9,96.67,870.03
+ORD00758,2025-07-28,Keyboard,Accessories,Hanoi,3,58.6,193.38
+ORD00759,2025-07-21,Smartphone,Electronics,Da Nang,3,816.15,2693.3
+ORD00760,2025-11-26,Tablet,Electronics,Hanoi,1,616.71,770.89
+ORD00761,2025-09-08,Keyboard,Accessories,Ho Chi Minh City,7,54.22,379.54
+ORD00762,2025-01-06,Laptop,Electronics,Da Nang,2,1399.02,2798.04
+ORD00763,2025-02-13,Mouse,Accessories,Hanoi,9,23.17,208.53
+ORD00764,2025-04-07,Mouse,Accessories,Hanoi,5,24.36,121.8
+ORD00765,2025-02-25,Webcam,Accessories,Hanoi,7,78.58,550.06
+ORD00766,2025-01-10,Keyboard,Accessories,Ho Chi Minh City,1,62.01,62.01
+ORD00767,2025-01-20,Webcam,Accessories,Can Tho,1,81.75,81.75
+ORD00768,2025-01-03,Mouse,Accessories,Hanoi,2,22.68,45.36
+ORD00769,2025-04-01,Mouse,Accessories,Da Nang,6,23.53,141.18
+ORD00770,2025-10-11,Keyboard,Accessories,Da Nang,6,57.6,345.6
+ORD00771,2025-04-17,Webcam,Accessories,Can Tho,4,83.69,334.76
+ORD00772,2025-03-29,Keyboard,Accessories,Hai Phong,3,54.21,162.63
+ORD00773,2025-09-10,Laptop,Electronics,Hanoi,2,1492.75,2985.5
+ORD00774,2025-05-20,Keyboard,Accessories,Da Nang,9,61.62,554.58
+ORD00775,2025-05-26,Keyboard,Accessories,Da Nang,1,59.74,59.74
+ORD00776,2025-02-17,Webcam,Accessories,Hai Phong,7,75.58,529.06
+ORD00777,2025-04-19,Webcam,Accessories,Da Nang,8,72.99,583.92
+ORD00778,2025-02-27,Keyboard,Accessories,Da Nang,7,54.0,378.0
+ORD00779,2025-08-12,Laptop,Electronics,Da Nang,1,1551.06,1551.06
+ORD00780,2025-01-03,Monitor,Electronics,Hanoi,1,343.56,343.56
+ORD00781,2025-07-18,Mouse,Accessories,Can Tho,3,24.73,81.61
+ORD00782,2025-07-27,Headphones,Accessories,Ho Chi Minh City,1,94.58,104.04
+ORD00783,2025-09-21,Headphones,Accessories,Hai Phong,6,96.54,579.24
+ORD00784,2025-11-22,Laptop,Electronics,Hanoi,1,1376.21,1720.26
+ORD00785,2025-05-22,Laptop,Electronics,Da Nang,1,1417.04,1417.04
+ORD00786,2025-03-09,Mouse,Accessories,Ho Chi Minh City,4,23.51,94.04
+ORD00787,2025-01-31,Mouse,Accessories,Hai Phong,9,23.16,208.44
+ORD00788,2025-02-12,Keyboard,Accessories,Da Nang,9,57.82,520.38
+ORD00789,2025-04-09,Mouse,Accessories,Ho Chi Minh City,3,24.57,73.71
+ORD00790,2025-02-16,Headphones,Accessories,Da Nang,4,91.38,365.52
+ORD00791,2025-02-20,Monitor,Electronics,Hanoi,5,353.42,1767.1
+ORD00792,2025-11-20,Mouse,Accessories,Ho Chi Minh City,3,23.4,87.75
+ORD00793,2025-09-02,Keyboard,Accessories,Can Tho,8,58.11,464.88
+ORD00794,2025-01-11,Mouse,Accessories,Da Nang,1,23.85,23.85
+ORD00795,2025-09-28,Mouse,Accessories,Hanoi,5,23.67,118.35
+ORD00796,2025-11-12,Webcam,Accessories,Can Tho,8,82.07,820.7
+ORD00797,2025-12-16,Mouse,Accessories,Ho Chi Minh City,7,25.57,223.74
+ORD00798,2025-10-23,Monitor,Electronics,Da Nang,3,327.66,982.98
+ORD00799,2025-02-21,Monitor,Electronics,Ho Chi Minh City,1,322.67,322.67
+ORD00800,2025-01-01,Webcam,Accessories,Hanoi,7,79.57,556.99
+ORD00801,2025-05-05,Mouse,Accessories,Hanoi,4,25.8,103.2
+ORD00802,2025-10-07,Laptop,Electronics,Da Nang,1,1439.42,1439.42
+ORD00803,2025-04-18,Keyboard,Accessories,Da Nang,4,59.45,237.8
+ORD00804,2025-09-27,Headphones,Accessories,Hai Phong,2,91.82,183.64
+ORD00805,2025-10-15,Webcam,Accessories,Hanoi,4,78.14,312.56
+ORD00806,2025-12-22,Headphones,Accessories,Hanoi,6,94.59,709.42
+ORD00807,2025-02-16,Smartphone,Electronics,Hanoi,1,781.78,781.78
+ORD00808,2025-04-18,Headphones,Accessories,Hai Phong,6,101.98,611.88
+ORD00809,2025-06-09,Mouse,Accessories,Hai Phong,5,26.25,144.38
+ORD00810,2025-08-30,Headphones,Accessories,Hanoi,1,92.46,92.46
+ORD00811,2025-11-27,Mouse,Accessories,Ho Chi Minh City,3,22.81,85.54
+ORD00812,2025-03-23,Mouse,Accessories,Hanoi,8,23.4,187.2
+ORD00813,2025-10-13,Headphones,Accessories,Ho Chi Minh City,5,95.29,476.45
+ORD00814,2025-08-18,Keyboard,Accessories,Can Tho,1,54.56,54.56
+ORD00815,2025-07-05,Smartphone,Electronics,Ho Chi Minh City,2,822.44,1809.37
+ORD00816,2025-03-29,Headphones,Accessories,Hanoi,2,98.54,197.08
+ORD00817,2025-05-20,Headphones,Accessories,Hanoi,5,90.96,454.8
+ORD00818,2025-08-12,Laptop,Electronics,Hanoi,1,1558.77,1558.77
+ORD00819,2025-11-11,Keyboard,Accessories,Da Nang,5,60.56,378.5
+ORD00820,2025-11-14,Tablet,Electronics,Ho Chi Minh City,1,621.38,776.73
+ORD00821,2025-06-02,Keyboard,Accessories,Ho Chi Minh City,8,61.5,541.2
+ORD00822,2025-09-15,Smartphone,Electronics,Ho Chi Minh City,2,828.99,1657.98
+ORD00823,2025-02-16,Headphones,Accessories,Da Nang,1,96.4,96.4
+ORD00824,2025-10-17,Monitor,Electronics,Hai Phong,1,362.74,362.74
+ORD00825,2025-06-14,Mouse,Accessories,Hanoi,2,23.81,52.38
+ORD00826,2025-02-05,Laptop,Electronics,Hanoi,1,1571.56,1571.56
+ORD00827,2025-12-12,Webcam,Accessories,Ho Chi Minh City,9,83.01,933.86
+ORD00828,2025-10-09,Smartphone,Electronics,Ho Chi Minh City,2,824.17,1648.34
+ORD00829,2025-05-22,Smartphone,Electronics,Da Nang,1,806.64,806.64
+ORD00830,2025-07-17,Mouse,Accessories,Hai Phong,2,25.45,55.99
+ORD00831,2025-07-22,Mouse,Accessories,Hanoi,4,25.69,113.04
+ORD00832,2025-05-09,Mouse,Accessories,Ho Chi Minh City,1,25.28,25.28
+ORD00833,2025-01-14,Mouse,Accessories,Ho Chi Minh City,7,22.86,160.02
+ORD00834,2025-06-01,Smartphone,Electronics,Can Tho,3,722.3,2383.59
+ORD00835,2025-07-19,Headphones,Accessories,Ho Chi Minh City,5,102.79,565.35
+ORD00836,2025-09-09,Monitor,Electronics,Hanoi,5,324.02,1620.1
+ORD00837,2025-09-30,Mouse,Accessories,Hai Phong,10,23.03,230.3
+ORD00838,2025-08-09,Keyboard,Accessories,Hanoi,3,54.53,163.59
+ORD00839,2025-03-22,Mouse,Accessories,Ho Chi Minh City,8,25.56,204.48
+ORD00840,2025-12-16,Mouse,Accessories,Hanoi,1,22.97,28.71
+ORD00841,2025-06-01,Keyboard,Accessories,Da Nang,10,58.07,638.77
+ORD00842,2025-09-16,Headphones,Accessories,Hai Phong,2,96.78,193.56
+ORD00843,2025-05-21,Headphones,Accessories,Ho Chi Minh City,4,96.02,384.08
+ORD00844,2025-01-18,Laptop,Electronics,Hai Phong,2,1516.49,3032.98
+ORD00845,2025-05-17,Headphones,Accessories,Can Tho,3,99.39,298.17
+ORD00846,2025-04-24,Monitor,Electronics,Ho Chi Minh City,1,337.68,337.68
+ORD00847,2025-04-07,Mouse,Accessories,Da Nang,5,25.62,128.1
+ORD00848,2025-03-06,Smartphone,Electronics,Hanoi,3,737.04,2211.12
+ORD00849,2025-01-17,Smartphone,Electronics,Hanoi,3,793.47,2380.41
+ORD00850,2025-07-26,Headphones,Accessories,Da Nang,6,91.0,600.6
+ORD00851,2025-08-24,Webcam,Accessories,Ho Chi Minh City,3,83.99,251.97
+ORD00852,2025-10-26,Monitor,Electronics,Hanoi,5,357.76,1788.8
+ORD00853,2025-09-18,Headphones,Accessories,Hanoi,9,90.44,813.96
+ORD00854,2025-04-03,Headphones,Accessories,Can Tho,3,100.47,301.41
+ORD00855,2025-02-18,Mouse,Accessories,Ho Chi Minh City,8,22.63,181.04
+ORD00856,2025-08-17,Laptop,Electronics,Can Tho,1,1462.16,1462.16
+ORD00857,2025-09-07,Mouse,Accessories,Hanoi,3,23.39,70.17
+ORD00858,2025-01-31,Tablet,Electronics,Hai Phong,3,592.16,1776.48
+ORD00859,2025-06-29,Monitor,Electronics,Ho Chi Minh City,3,348.39,1149.69
+ORD00860,2025-07-19,Webcam,Accessories,Da Nang,7,80.19,617.46
+ORD00861,2025-01-08,Mouse,Accessories,Da Nang,4,23.88,95.52
+ORD00862,2025-10-02,Smartphone,Electronics,Ho Chi Minh City,3,745.54,2236.62
+ORD00863,2025-09-15,Monitor,Electronics,Ho Chi Minh City,1,357.13,357.13
+ORD00864,2025-08-10,Monitor,Electronics,Hai Phong,1,342.26,342.26
+ORD00865,2025-09-13,Headphones,Accessories,Da Nang,1,91.43,91.43
+ORD00866,2025-01-23,Monitor,Electronics,Hanoi,2,340.55,681.1
+ORD00867,2025-09-02,Keyboard,Accessories,Hanoi,6,62.69,376.14
+ORD00868,2025-04-03,Mouse,Accessories,Hai Phong,5,24.59,122.95
+ORD00869,2025-03-24,Headphones,Accessories,Hanoi,5,103.33,516.65
+ORD00870,2025-06-18,Laptop,Electronics,Hai Phong,1,1550.13,1705.14
+ORD00871,2025-06-27,Mouse,Accessories,Can Tho,9,25.52,252.65
+ORD00872,2025-12-28,Tablet,Electronics,Hanoi,2,610.79,1526.97
+ORD00873,2025-06-20,Monitor,Electronics,Ho Chi Minh City,2,327.61,720.74
+ORD00874,2025-05-15,Mouse,Accessories,Can Tho,4,23.65,94.6
+ORD00875,2025-12-19,Webcam,Accessories,Hanoi,10,77.38,967.25
+ORD00876,2025-01-12,Monitor,Electronics,Hanoi,1,320.68,320.68
+ORD00877,2025-05-29,Headphones,Accessories,Hai Phong,6,99.88,599.28
+ORD00878,2025-09-10,Mouse,Accessories,Hanoi,8,25.56,204.48
+ORD00879,2025-01-22,Mouse,Accessories,Hanoi,8,22.86,182.88
+ORD00880,2025-01-05,Tablet,Electronics,Ho Chi Minh City,2,589.21,1178.42
+ORD00881,2025-06-10,Monitor,Electronics,Hanoi,3,326.72,1078.18
+ORD00882,2025-03-12,Keyboard,Accessories,Ho Chi Minh City,3,58.44,175.32
+ORD00883,2025-05-27,Tablet,Electronics,Ho Chi Minh City,3,602.91,1808.73
+ORD00884,2025-06-30,Keyboard,Accessories,Ho Chi Minh City,6,58.48,385.97
+ORD00885,2025-08-20,Keyboard,Accessories,Hanoi,2,62.2,124.4
+ORD00886,2025-01-09,Keyboard,Accessories,Ho Chi Minh City,7,61.5,430.5
+ORD00887,2025-11-06,Monitor,Electronics,Ho Chi Minh City,5,334.8,2092.5
+ORD00888,2025-10-13,Mouse,Accessories,Da Nang,9,25.83,232.47
+ORD00889,2025-10-17,Keyboard,Accessories,Ho Chi Minh City,9,61.28,551.52
+ORD00890,2025-02-28,Monitor,Electronics,Hanoi,3,353.55,1060.65
+ORD00891,2025-12-29,Mouse,Accessories,Da Nang,4,26.09,130.45
+ORD00892,2025-08-18,Keyboard,Accessories,Hanoi,8,62.97,503.76
+ORD00893,2025-08-26,Keyboard,Accessories,Hanoi,8,62.11,496.88
+ORD00894,2025-10-06,Laptop,Electronics,Ho Chi Minh City,3,1394.95,4184.85
+ORD00895,2025-05-25,Keyboard,Accessories,Hanoi,2,61.57,123.14
+ORD00896,2025-06-01,Laptop,Electronics,Ho Chi Minh City,1,1409.79,1550.77
+ORD00897,2025-01-14,Webcam,Accessories,Da Nang,8,74.47,595.76
+ORD00898,2025-02-10,Mouse,Accessories,Hai Phong,10,24.59,245.9
+ORD00899,2025-03-23,Smartphone,Electronics,Hanoi,1,771.73,771.73
+ORD00900,2025-03-14,Mouse,Accessories,Hanoi,10,22.74,227.4
+ORD00901,2025-05-21,Mouse,Accessories,Da Nang,2,23.38,46.76
+ORD00902,2025-10-13,Headphones,Accessories,Da Nang,7,98.58,690.06
+ORD00903,2025-04-20,Webcam,Accessories,Hanoi,5,75.02,375.1
+ORD00904,2025-03-23,Keyboard,Accessories,Da Nang,6,60.43,362.58
+ORD00905,2025-03-21,Headphones,Accessories,Hai Phong,5,96.32,481.6
+ORD00906,2025-03-13,Mouse,Accessories,Da Nang,1,25.53,25.53
+ORD00907,2025-02-04,Headphones,Accessories,Hanoi,3,103.85,311.55
+ORD00908,2025-10-18,Tablet,Electronics,Hanoi,2,608.26,1216.52
+ORD00909,2025-12-26,Webcam,Accessories,Hanoi,5,72.24,451.5
+ORD00910,2025-04-15,Mouse,Accessories,Ho Chi Minh City,10,24.73,247.3
+ORD00911,2025-10-08,Smartphone,Electronics,Hanoi,3,781.08,2343.24
+ORD00912,2025-07-20,Laptop,Electronics,Hanoi,3,1439.59,4750.65
+ORD00913,2025-04-03,Mouse,Accessories,Ho Chi Minh City,5,22.9,114.5
+ORD00914,2025-07-20,Smartphone,Electronics,Hanoi,3,815.18,2690.09
+ORD00915,2025-07-07,Keyboard,Accessories,Ho Chi Minh City,4,55.92,246.05
+ORD00916,2025-02-03,Webcam,Accessories,Ho Chi Minh City,1,81.51,81.51
+ORD00917,2025-07-18,Monitor,Electronics,Can Tho,5,340.62,1873.41
+ORD00918,2025-10-19,Headphones,Accessories,Da Nang,2,94.71,189.42
+ORD00919,2025-02-11,Headphones,Accessories,Hanoi,6,91.11,546.66
+ORD00920,2025-07-02,Keyboard,Accessories,Da Nang,8,59.8,526.24
+ORD00921,2025-02-19,Headphones,Accessories,Ho Chi Minh City,6,96.06,576.36
+ORD00922,2025-06-24,Headphones,Accessories,Hanoi,6,91.15,601.59
+ORD00923,2025-12-04,Webcam,Accessories,Da Nang,3,77.4,290.25
+ORD00924,2025-04-16,Monitor,Electronics,Hanoi,5,326.6,1633.0
+ORD00925,2025-10-18,Mouse,Accessories,Can Tho,2,25.09,50.18
+ORD00926,2025-05-03,Mouse,Accessories,Da Nang,5,26.25,131.25
+ORD00927,2025-06-22,Tablet,Electronics,Ho Chi Minh City,1,553.76,609.14
+ORD00928,2025-02-22,Headphones,Accessories,Can Tho,5,104.39,521.95
+ORD00929,2025-02-03,Smartphone,Electronics,Can Tho,3,772.87,2318.61
+ORD00930,2025-07-13,Mouse,Accessories,Hanoi,1,22.71,24.98
+ORD00931,2025-10-14,Headphones,Accessories,Can Tho,1,103.81,103.81
+ORD00932,2025-09-29,Mouse,Accessories,Ho Chi Minh City,9,26.15,235.35
+ORD00933,2025-07-21,Mouse,Accessories,Hanoi,2,26.16,57.55
+ORD00934,2025-10-22,Smartphone,Electronics,Hanoi,2,756.47,1512.94
+ORD00935,2025-11-18,Keyboard,Accessories,Can Tho,2,59.9,149.75
+ORD00936,2025-08-28,Monitor,Electronics,Da Nang,3,349.23,1047.69
+ORD00937,2025-10-06,Monitor,Electronics,Ho Chi Minh City,5,330.91,1654.55
+ORD00938,2025-07-24,Smartphone,Electronics,Ho Chi Minh City,2,788.43,1734.55
+ORD00939,2025-05-28,Keyboard,Accessories,Ho Chi Minh City,7,58.44,409.08
+ORD00940,2025-10-13,Monitor,Electronics,Hai Phong,3,324.08,972.24
+ORD00941,2025-10-06,Monitor,Electronics,Da Nang,5,350.43,1752.15
+ORD00942,2025-01-29,Headphones,Accessories,Ho Chi Minh City,10,103.44,1034.4
+ORD00943,2025-10-27,Smartphone,Electronics,Hai Phong,1,827.68,827.68
+ORD00944,2025-06-11,Tablet,Electronics,Ho Chi Minh City,3,549.22,1812.43
+ORD00945,2025-04-13,Tablet,Electronics,Hanoi,2,596.72,1193.44
+ORD00946,2025-12-30,Keyboard,Accessories,Ho Chi Minh City,6,60.68,455.1
+ORD00947,2025-12-27,Keyboard,Accessories,Da Nang,7,55.07,481.86
+ORD00948,2025-04-23,Smartphone,Electronics,Da Nang,3,793.44,2380.32
+ORD00949,2025-04-07,Smartphone,Electronics,Hanoi,3,781.2,2343.6
+ORD00950,2025-05-04,Mouse,Accessories,Hanoi,4,23.78,95.12
+ORD00951,2025-10-11,Laptop,Electronics,Ho Chi Minh City,3,1533.15,4599.45
+ORD00952,2025-11-28,Keyboard,Accessories,Hanoi,7,56.27,492.36
+ORD00953,2025-03-10,Keyboard,Accessories,Da Nang,9,62.64,563.76
+ORD00954,2025-05-03,Headphones,Accessories,Hanoi,1,93.42,93.42
+ORD00955,2025-09-23,Keyboard,Accessories,Da Nang,8,58.71,469.68
+ORD00956,2025-07-10,Tablet,Electronics,Hanoi,2,594.11,1307.04
+ORD00957,2025-11-11,Smartphone,Electronics,Can Tho,2,745.87,1864.67
+ORD00958,2025-04-01,Headphones,Accessories,Da Nang,6,99.33,595.98
+ORD00959,2025-12-11,Laptop,Electronics,Hanoi,3,1478.51,5544.41
+ORD00960,2025-05-19,Monitor,Electronics,Hanoi,3,341.87,1025.61
+ORD00961,2025-09-08,Keyboard,Accessories,Ho Chi Minh City,4,56.36,225.44
+ORD00962,2025-01-15,Webcam,Accessories,Hai Phong,4,82.91,331.64
+ORD00963,2025-06-23,Tablet,Electronics,Hanoi,3,602.26,1987.46
+ORD00964,2025-03-21,Keyboard,Accessories,Hanoi,4,56.23,224.92
+ORD00965,2025-03-24,Webcam,Accessories,Can Tho,7,76.92,538.44
+ORD00966,2025-09-09,Keyboard,Accessories,Da Nang,9,60.77,546.93
+ORD00967,2025-04-23,Tablet,Electronics,Da Nang,2,605.14,1210.28
+ORD00968,2025-08-21,Monitor,Electronics,Hanoi,3,345.99,1037.97
+ORD00969,2025-01-25,Mouse,Accessories,Ho Chi Minh City,10,24.79,247.9
+ORD00970,2025-03-17,Headphones,Accessories,Ho Chi Minh City,4,93.72,374.88
+ORD00971,2025-07-07,Keyboard,Accessories,Can Tho,6,56.4,372.24
+ORD00972,2025-11-03,Headphones,Accessories,Da Nang,6,96.78,725.85
+ORD00973,2025-03-03,Keyboard,Accessories,Hanoi,6,56.72,340.32
+ORD00974,2025-02-01,Smartphone,Electronics,Can Tho,1,723.11,723.11
+ORD00975,2025-10-14,Headphones,Accessories,Hanoi,5,91.19,455.95
+ORD00976,2025-02-22,Keyboard,Accessories,Can Tho,7,54.87,384.09
+ORD00977,2025-10-20,Keyboard,Accessories,Ho Chi Minh City,8,54.84,438.72
+ORD00978,2025-05-29,Laptop,Electronics,Da Nang,1,1390.49,1390.49
+ORD00979,2025-07-12,Tablet,Electronics,Hai Phong,3,563.69,1860.18
+ORD00980,2025-08-24,Keyboard,Accessories,Can Tho,10,59.0,590.0
+ORD00981,2025-02-16,Webcam,Accessories,Can Tho,5,72.12,360.6
+ORD00982,2025-12-25,Smartphone,Electronics,Hanoi,2,738.13,1845.33
+ORD00983,2025-03-15,Mouse,Accessories,Ho Chi Minh City,3,24.0,72.0
+ORD00984,2025-12-17,Mouse,Accessories,Ho Chi Minh City,9,22.54,253.57
+ORD00985,2025-10-19,Webcam,Accessories,Hanoi,3,79.86,239.58
+ORD00986,2025-02-06,Mouse,Accessories,Ho Chi Minh City,8,25.38,203.04
+ORD00987,2025-12-31,Headphones,Accessories,Da Nang,9,92.55,1041.19
+ORD00988,2025-02-21,Webcam,Accessories,Da Nang,7,77.33,541.31
+ORD00989,2025-02-09,Keyboard,Accessories,Hanoi,10,56.57,565.7
+ORD00990,2025-07-29,Headphones,Accessories,Can Tho,7,90.62,697.77
+ORD00991,2025-09-23,Tablet,Electronics,Can Tho,2,554.57,1109.14
+ORD00992,2025-11-04,Smartphone,Electronics,Ho Chi Minh City,1,798.23,997.79
+ORD00993,2025-05-08,Monitor,Electronics,Da Nang,4,317.37,1269.48
+ORD00994,2025-06-29,Tablet,Electronics,Hanoi,3,558.23,1842.16
+ORD00995,2025-09-04,Mouse,Accessories,Hanoi,7,23.84,166.88
+ORD00996,2025-11-16,Mouse,Accessories,Hanoi,3,24.37,91.39
+ORD00997,2025-06-11,Laptop,Electronics,Da Nang,2,1556.46,3424.21
+ORD00998,2025-08-15,Tablet,Electronics,Ho Chi Minh City,3,612.24,1836.72
+ORD00999,2025-04-06,Headphones,Accessories,Hanoi,2,98.09,196.18
+ORD01000,2025-11-18,Laptop,Electronics,Hanoi,2,1358.64,3396.6
