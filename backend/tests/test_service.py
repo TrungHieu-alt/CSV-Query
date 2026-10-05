@@ -56,6 +56,29 @@ def test_invalid_json_repair_success(frame: pd.DataFrame) -> None:
     assert "Repair the previous plan" in client.prompts[1]
 
 
+def test_json_code_fence_is_accepted_without_retry(frame: pd.DataFrame) -> None:
+    client = FakeClient([f"```json\n{plan(select=['region'])}\n```"])
+    response = QueryService(frame, [], client).query("show regions")
+    assert response["columns"] == ["region"]
+    assert len(client.prompts) == 1
+
+
+def test_repair_prompt_contains_safe_validation_details(frame: pd.DataFrame) -> None:
+    invalid = json.dumps({"clarify": None, "unknown_field": True})
+    client = FakeClient([invalid, plan(select=["region"])])
+    QueryService(frame, [], client).query("show regions")
+    assert "extra_forbidden" in client.prompts[1]
+    assert "unknown_field" in client.prompts[1]
+
+
+def test_follow_up_history_is_included_in_prompt(frame: pd.DataFrame) -> None:
+    previous = json.dumps({"summary": "2 results", "last_plan": {"group_by": ["region"]}})
+    client = FakeClient([plan(group_by=["region"], aggregations=[{"column": "revenue", "func": "sum", "alias": "total"}])])
+    QueryService(frame, [], client).query("sort that descending", [{"role": "assistant", "content": previous}])
+    assert "last_plan" in client.prompts[0]
+    assert "sort that descending" in client.prompts[0]
+
+
 def test_execution_error_repair_success(frame: pd.DataFrame) -> None:
     bad = plan(select=["__class__"])
     good = plan(select=["region"])

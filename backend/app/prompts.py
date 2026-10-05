@@ -15,6 +15,11 @@ Group by a date at a useful grain with {"column":"date_column","grain":"day|week
 Plain column names remain valid group_by entries for grouping without a time grain.
 If the request is ambiguous, return only {"clarify":"one concise question"}.
 Otherwise return a plan with clarify null and safe declarative operations.
+The exact plan keys are: clarify, filters, group_by, aggregations, select, sort_by, ascending, limit.
+Each filter is {"column":"name","op":"allowed operator","value":"scalar or list for in"}.
+Each aggregation is {"column":"name","func":"allowed function","alias":"safe_output_name"}.
+sort_by must name either a selected/grouped column or an aggregation alias.
+Use recent_history to resolve follow-ups. An assistant history item may contain the validated last_plan as JSON.
 Never emit Python, expressions, markdown, or commentary."""
 
 

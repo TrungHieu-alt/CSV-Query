@@ -24,14 +24,20 @@ class QueryService:
 
     @staticmethod
     def _parse(raw: str) -> QueryPlan:
+        normalized = raw.strip()
+        if normalized.startswith("```") and normalized.endswith("```"):
+            lines = normalized.splitlines()
+            if len(lines) >= 3 and lines[0].strip().lower() in {"```", "```json"} and lines[-1].strip() == "```":
+                normalized = "\n".join(lines[1:-1]).strip()
         try:
-            payload = json.loads(raw)
+            payload = json.loads(normalized)
         except json.JSONDecodeError as exc:
             raise ValueError("Model output was not valid JSON.") from exc
         try:
             return QueryPlan.model_validate(payload)
         except ValidationError as exc:
-            raise ValueError("Model output did not match the query-plan schema.") from exc
+            details = json.dumps(exc.errors(include_url=False, include_input=False), ensure_ascii=False)
+            raise ValueError(f"Model output did not match the query-plan schema: {details}") from exc
 
     def _run(self, raw: str) -> dict[str, Any]:
         plan = self._parse(raw)

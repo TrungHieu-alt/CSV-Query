@@ -295,6 +295,11 @@ function renderResult(message, data) {
   message.append(table);
 }
 
+function resultHistoryContent(data, label) {
+  const context = JSON.stringify({ summary: label, last_plan: data.plan });
+  return context.slice(0, 1000);
+}
+
 function setLoading(loading) {
   elements.input.disabled = loading;
   elements.send.disabled = loading;
@@ -392,7 +397,7 @@ async function ask(question) {
       message.append(note);
     }
     appendPlan(message, data.plan);
-    history.push({ role: "assistant", content: label });
+    history.push({ role: "assistant", content: resultHistoryContent(data, label) });
   } catch (error) {
     const text = error instanceof TypeError ? UI.networkError : `${UI.errorPrefix}${error.message}`;
     appendMessage("assistant", text, true);

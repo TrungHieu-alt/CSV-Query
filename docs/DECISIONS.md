@@ -33,3 +33,9 @@
     from jsDelivr. No Python dependency was needed for Step 1.
 14. CSV downloads contain the returned result page (at most 500 rows), matching
     exactly what the user can inspect in the fallback table.
+15. Multi-turn history stores the previous validated plan, not just a row-count
+    label, so follow-up references remain grounded. It is capped at the existing
+    1,000-character message limit.
+16. A response consisting solely of a `json` Markdown fence is unwrapped and
+    still fully validated as data. Validation details are supplied only to the
+    repair prompt; public API errors remain generic.
