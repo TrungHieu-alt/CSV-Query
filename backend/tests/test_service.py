@@ -62,5 +62,5 @@ def test_clarification(frame: pd.DataFrame) -> None:
     client = FakeClient([json.dumps({"clarify": "Best by revenue or quantity?"})])
     response = QueryService(frame, [], client).query("best product")
     assert response["clarify"] == "Best by revenue or quantity?"
+    assert set(response) == {"clarify"}
     assert len(client.prompts) == 1
-

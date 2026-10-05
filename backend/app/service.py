@@ -35,7 +35,7 @@ class QueryService:
     def _run(self, raw: str) -> dict[str, Any]:
         plan = self._parse(raw)
         if plan.clarify:
-            return {"clarify": plan.clarify, "plan": plan.model_dump(mode="json")}
+            return {"clarify": plan.clarify}
         result = execute_plan(self._df, plan)
         return {
             "plan": plan.model_dump(mode="json"),
@@ -56,4 +56,3 @@ class QueryService:
                 return self._run(repaired)
             except (ValueError, PlanExecutionError) as second_error:
                 raise ValueError("Unable to produce a valid query plan after one repair attempt.") from second_error
-

@@ -66,3 +66,10 @@ more than 500 rows.
 Implementation tradeoffs and production follow-ups are recorded in
 [`docs/DECISIONS.md`](docs/DECISIONS.md).
 
+## Legacy app
+
+The original Streamlit implementation is preserved under `legacy/` for
+reference. It contains the retired dynamic-expression approach and must not be
+used as the production service. To inspect it locally, run
+`.\.venv\Scripts\python.exe -m streamlit run legacy\app.py` from the repository
+root.

@@ -1,4 +1,8 @@
 const UI = Object.freeze({
+  pageTitle: "Sales Data Chat",
+  pageDescription: "Ask natural-language questions about sales data.",
+  eyebrow: "CSV ANALYST",
+  heading: "Talk to your sales data.",
   subtitle: "Ask questions in everyday language. Your answer is produced by a validated, code-free query plan.",
   welcome: "What would you like to know about the 2025 sales data?",
   placeholder: "e.g. Total revenue by region",
@@ -21,6 +25,10 @@ const sendButton = document.querySelector("#send-button");
 const statusElement = document.querySelector("#status");
 const history = [];
 
+document.title = UI.pageTitle;
+document.querySelector("#page-description").content = UI.pageDescription;
+document.querySelector("#eyebrow").textContent = UI.eyebrow;
+document.querySelector("#heading").textContent = UI.heading;
 document.querySelector("#subtitle").textContent = UI.subtitle;
 input.placeholder = UI.placeholder;
 sendButton.textContent = UI.send;
@@ -155,4 +163,3 @@ async function loadExamples() {
 
 appendMessage("assistant", UI.welcome);
 loadExamples();
-
