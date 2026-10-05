@@ -116,9 +116,12 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
             )
             log_data["plan"] = result.get("plan")
             return JSONResponse(content=result)
-        except (LLMError, ValueError) as exc:
+        except LLMError as exc:
             log_data["error"] = type(exc).__name__
-            return JSONResponse(status_code=422, content={"error": str(exc)})
+            return JSONResponse(status_code=502, content={"error": "The language model request failed."})
+        except ValueError as exc:
+            log_data["error"] = type(exc).__name__
+            return JSONResponse(status_code=422, content={"error": "Unable to produce a valid query plan after one repair attempt."})
         except Exception as exc:
             log_data["error"] = type(exc).__name__
             return JSONResponse(status_code=500, content={"error": "The query could not be completed."})
@@ -133,4 +136,3 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
 
 
 app = create_app()
-
