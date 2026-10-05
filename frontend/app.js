@@ -17,6 +17,7 @@ const UI = Object.freeze({
   errorPrefix: "Sorry, that request could not be completed: ",
   networkError: "The API is unavailable. Check that the backend is running.",
   generatedPlan: "Generated plan",
+  how: "How I got this",
   chart: "Chart",
   table: "Table",
   downloadCsv: "Download CSV",
@@ -93,17 +94,17 @@ function appendMessage(role, text, isError = false) {
   return message;
 }
 
-function appendPlan(container, plan) {
+function appendPlan(container, plan, findings = null) {
   const details = document.createElement("details");
   const summary = document.createElement("summary");
-  summary.textContent = UI.generatedPlan;
+  summary.textContent = findings ? UI.how : UI.generatedPlan;
   const code = document.createElement("pre");
-  code.textContent = JSON.stringify(plan, null, 2);
+  code.textContent = JSON.stringify(findings ? { tool_call: plan, FINDINGS: findings } : plan, null, 2);
   details.append(summary, code);
   container.append(details);
 }
 
-function createTable(columns, rows) {
+function createTable(columns, rows, metric = null) {
   const wrapper = document.createElement("div");
   wrapper.className = "table-wrap";
   const table = document.createElement("table");
@@ -121,7 +122,8 @@ function createTable(columns, rows) {
     const tableRow = document.createElement("tr");
     columns.forEach((column) => {
       const cell = document.createElement("td");
-      cell.textContent = formatValue(row[column], column);
+      const formatColumn = metric && ["current_value", "baseline_value", "delta"].includes(column) ? metric : column;
+      cell.textContent = formatValue(row[column], formatColumn);
       tableRow.append(cell);
     });
     body.append(tableRow);
@@ -147,6 +149,7 @@ function formatValue(value, column = "") {
   if (typeof value === "number") {
     const options = { maximumFractionDigits: Number.isInteger(value) ? 0 : 2 };
     const formatted = value.toLocaleString(undefined, options);
+    if (/percentage|share/i.test(column)) return `${formatted}%`;
     return /revenue|price|sales|income|cost/i.test(column) ? `$${formatted}` : formatted;
   }
   return String(value);
@@ -205,7 +208,7 @@ function createChart(data) {
     const colors = chartColors(groups.length);
     datasets = groups.map((group, index) => ({
       label: group,
-      sourceColumn: yColumns[0],
+      sourceColumn: data.findings?.metric || yColumns[0],
       data: labels.map((label) => data.rows.find((row) => String(row[x] ?? "—") === label && String(row[data.viz.series] ?? "—") === group)?.[yColumns[0]] ?? null),
       backgroundColor: colors[index],
       borderColor: colors[index],
@@ -215,7 +218,7 @@ function createChart(data) {
     const colors = chartColors(yColumns.length);
     datasets = yColumns.map((column, index) => ({
       label: readableLabel(column),
-      sourceColumn: column,
+      sourceColumn: data.findings?.metric || column,
       data: data.rows.map((row) => row[column]),
       backgroundColor: colors[index],
       borderColor: colors[index],
@@ -241,7 +244,7 @@ function createChart(data) {
       },
       scales: {
         x: { ticks: { callback: function(value) { return truncateLabel(this.getLabelForValue(value)); } }, title: { display: true, text: readableLabel(x) } },
-        y: { beginAtZero: data.viz.type !== "line", title: { display: true, text: yColumns.map(axisLabel).join(", ") } },
+        y: { beginAtZero: data.viz.type !== "line", title: { display: true, text: yColumns.map((column) => axisLabel(data.findings?.metric || column)).join(", ") } },
       },
     },
   });
@@ -256,10 +259,21 @@ function createKpis(data) {
     const card = document.createElement("section");
     card.className = "kpi-card";
     const value = document.createElement("strong");
-    value.textContent = formatValue(data.rows[0]?.[column], column);
+    value.textContent = formatValue(data.rows[0]?.[column], data.findings?.metric || column);
     const label = document.createElement("span");
-    label.textContent = readableLabel(column);
+    label.textContent = readableLabel(data.findings && column === "current_value" ? data.findings.metric : column);
     card.append(value, label);
+    if (data.findings?.change) {
+      const delta = document.createElement("span");
+      delta.className = data.findings.change.absolute > 0 ? "kpi-delta positive" : data.findings.change.absolute < 0 ? "kpi-delta negative" : "kpi-delta";
+      if (data.findings.change.percentage === null) {
+        delta.textContent = "Percentage change unavailable vs baseline";
+      } else {
+        const arrow = data.findings.change.absolute > 0 ? "▲" : data.findings.change.absolute < 0 ? "▼" : "↔";
+        delta.textContent = `${arrow} ${Math.abs(data.findings.change.percentage).toLocaleString(undefined, { maximumFractionDigits: 1 })}% vs ${data.findings.baseline.label}`;
+      }
+      card.append(delta);
+    }
     grid.append(card);
   });
   return grid;
@@ -268,7 +282,7 @@ function createKpis(data) {
 function renderResult(message, data) {
   const actions = document.createElement("div");
   actions.className = "result-actions";
-  const table = createTable(data.columns, data.rows);
+  const table = createTable(data.columns, data.rows, data.findings?.metric);
   table.hidden = data.viz?.type !== "table";
   let visual = null;
 
@@ -278,7 +292,21 @@ function renderResult(message, data) {
     const chartWrap = document.createElement("div");
     chartWrap.className = "chart-wrap";
     chartWrap.append(createChart(data));
-    visual = chartWrap;
+    if (data.findings) {
+      const analysisVisual = document.createElement("div");
+      analysisVisual.className = "analysis-visual";
+      analysisVisual.append(
+        createKpis({
+          ...data,
+          rows: [{ current_value: data.findings.values.current }],
+          viz: { y: ["current_value"] },
+        }),
+        chartWrap,
+      );
+      visual = analysisVisual;
+    } else {
+      visual = chartWrap;
+    }
   } else {
     table.hidden = false;
   }
@@ -298,6 +326,47 @@ function renderResult(message, data) {
 function resultHistoryContent(data, label) {
   const context = JSON.stringify({ summary: label, last_plan: data.plan });
   return context.slice(0, 1000);
+}
+
+function appendAnalysisDetails(message, data) {
+  if (!data.findings) return;
+  const meta = document.createElement("p");
+  meta.className = "analysis-meta";
+  meta.textContent = `Sample size: ${data.findings.sample_sizes.current.toLocaleString()} current rows and ${data.findings.sample_sizes.baseline.toLocaleString()} baseline rows.`;
+  message.append(meta);
+  if (data.insights?.length) {
+    const list = document.createElement("ul");
+    list.className = "analysis-insights";
+    data.insights.forEach((insight) => {
+      const item = document.createElement("li");
+      item.textContent = insight;
+      list.append(item);
+    });
+    message.append(list);
+  }
+  if (data.findings.warnings?.length) {
+    const warnings = document.createElement("ul");
+    warnings.className = "analysis-warnings";
+    data.findings.warnings.forEach((warning) => {
+      const item = document.createElement("li");
+      item.textContent = warning;
+      warnings.append(item);
+    });
+    message.append(warnings);
+  }
+  if (data.follow_ups?.length) {
+    const followUps = document.createElement("div");
+    followUps.className = "follow-ups";
+    data.follow_ups.forEach((question) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "chip";
+      chip.textContent = question;
+      chip.addEventListener("click", () => ask(question));
+      followUps.append(chip);
+    });
+    message.append(followUps);
+  }
 }
 
 function setLoading(loading) {
@@ -387,16 +456,17 @@ async function ask(question) {
       history.push({ role: "assistant", content: data.clarify });
       return;
     }
-    const label = data.row_count === 0 ? UI.noRows : UI.rowCount(data.row_count);
+    const label = data.answer || (data.row_count === 0 ? UI.noRows : UI.rowCount(data.row_count));
     const message = appendMessage("assistant", label);
     renderResult(message, data);
+    appendAnalysisDetails(message, data);
     if (data.truncated) {
       const note = document.createElement("p");
       note.className = "truncation-note";
       note.textContent = `Showing ${data.rows.length.toLocaleString()} of ${data.row_count.toLocaleString()} rows (maximum 500).`;
       message.append(note);
     }
-    appendPlan(message, data.plan);
+    appendPlan(message, data.plan, data.findings);
     history.push({ role: "assistant", content: resultHistoryContent(data, label) });
   } catch (error) {
     const text = error instanceof TypeError ? UI.networkError : `${UI.errorPrefix}${error.message}`;

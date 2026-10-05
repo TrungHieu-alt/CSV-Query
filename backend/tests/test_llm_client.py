@@ -98,3 +98,16 @@ def test_identical_backup_key_is_not_retried(monkeypatch: Any) -> None:
     with pytest.raises(LLMError):
         GeminiClient("same-key", "gemini-test", backup_api_key="same-key").generate("prompt")
     assert calls == 1
+
+
+def test_custom_response_schema_is_used_for_narration(monkeypatch: Any) -> None:
+    captured: dict[str, Any] = {}
+    schema = {"type": "object", "properties": {"headline": {"type": "string"}}}
+
+    def fake_post(_url: str, **kwargs: Any) -> FakeResponse:
+        captured.update(kwargs)
+        return FakeResponse()
+
+    monkeypatch.setattr("backend.app.llm_client.requests.post", fake_post)
+    GeminiClient("test-key", "gemini-test").generate("prompt", response_schema=schema)
+    assert captured["json"]["generationConfig"]["responseSchema"] == schema

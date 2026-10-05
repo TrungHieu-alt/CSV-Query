@@ -16,3 +16,22 @@
 14. Unit-test every visualization decision, time grains, validation, sorting, and API compatibility.
 15. Run the complete offline test suite and review the diff for unsafe execution primitives.
 16. Record design choices in `docs/DECISIONS.md`, then commit the Step 1 milestone.
+
+# Step 2 plan — deterministic data analysis
+
+1. Preserve the validated query-plan path and detect analysis requests by `mode`.
+2. Define strict Pydantic models for tool calls, periods, findings, and narration.
+3. Use half-open ISO date ranges so period boundaries are deterministic.
+4. Validate tool names, numeric metrics, date ranges, grains, and dimensions.
+5. Implement `period_compare` with totals, changes, percentages, and sample sizes.
+6. Implement `contribution` with per-dimension deltas and ranked contributors.
+7. Generate warnings for missing periods, zero baselines, and segments below ten rows.
+8. Keep all arithmetic in trusted Pandas/Python code and serialize exact FINDINGS.
+9. Add one grounded narration call whose structured output may only cite FINDINGS.
+10. Reject narration containing unsupported numbers and use a deterministic fallback.
+11. Return analysis fields additively alongside the existing plan, rows, and viz fields.
+12. Render the headline, insights, KPI delta, contribution chart, and sample sizes safely.
+13. Add a collapsible evidence panel and deterministic schema-aware follow-up chips.
+14. Extend the Gemini response schema without allowing executable expressions.
+15. Add offline tool, validation, retry, grounding, security, and golden-number tests.
+16. Update README and decisions, run all checks, and commit the Step 2 milestone.

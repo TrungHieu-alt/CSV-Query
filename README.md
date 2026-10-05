@@ -9,6 +9,16 @@ The Data Explorer displays the bundled CSV with pagination and accepts custom
 UTF-8 CSV uploads. Selecting a dataset switches both the table and chat to that
 file. Uploads are kept in memory and removed when the backend restarts.
 
+Query results are displayed automatically as KPI cards, line charts, bar
+charts, grouped bars, or tables. Every result can be downloaded as CSV, and
+chart results retain a table fallback.
+
+For comparison and contribution questions, the model selects one of two
+allowlisted analysis tools. Trusted Pandas code computes the values, changes,
+sample sizes, and contributors. A separate model call explains only the
+structured findings; an unsupported number causes deterministic narration to
+replace the model output.
+
 ## Run locally on Windows PowerShell
 
 Prerequisites: Python 3.14 and a Gemini API key. A second key is optional and
@@ -63,6 +73,12 @@ Tests use fake LLM clients and never contact Gemini.
 The API accepts questions up to 500 characters and at most six history turns.
 It rate-limits query requests to 20 per client IP per minute and never returns
 more than 500 rows.
+
+Analysis periods are represented as half-open ISO date ranges (`start`
+inclusive, `end` exclusive). `period_compare` compares summed numeric metrics;
+`contribution` attributes the change to one validated categorical dimension.
+Analysis responses add `answer`, `insights`, `findings`, and `follow_ups` while
+retaining the normal plan, table, and visualization fields.
 
 ## API
 

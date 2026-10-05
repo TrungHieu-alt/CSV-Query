@@ -41,6 +41,9 @@ def test_health_and_schema() -> None:
         assert 4 <= len(body["examples"]) <= 6
         order_id = body["columns"][0]
         assert "allowed_values" not in order_id
+        order_date = body["columns"][1]
+        assert order_date["min"] == "2025-01-01T00:00:00"
+        assert order_date["max"] == "2025-12-31T00:00:00"
 
 
 def test_gemini_health_uses_injected_client_without_exposing_key() -> None:

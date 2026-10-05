@@ -67,6 +67,35 @@ GEMINI_QUERY_PLAN_SCHEMA: dict[str, Any] = {
         "sort_by": {"type": "string", "nullable": True},
         "ascending": {"type": "boolean"},
         "limit": {"type": "integer"},
+        "mode": {"type": "string", "enum": ["analysis"]},
+        "tool": {"type": "string", "enum": ["period_compare", "contribution"]},
+        "params": {
+            "type": "object",
+            "properties": {
+                "metric": {"type": "string"},
+                "period": {
+                    "type": "object",
+                    "properties": {
+                        "label": {"type": "string"},
+                        "start": {"type": "string"},
+                        "end": {"type": "string"},
+                    },
+                    "required": ["label", "start", "end"],
+                },
+                "baseline": {
+                    "type": "object",
+                    "properties": {
+                        "label": {"type": "string"},
+                        "start": {"type": "string"},
+                        "end": {"type": "string"},
+                    },
+                    "required": ["label", "start", "end"],
+                },
+                "grain": {"type": "string", "enum": ["day", "week", "month", "quarter"]},
+                "dimension": {"type": "string"},
+            },
+            "required": ["metric", "period", "baseline"],
+        },
     },
 }
 
@@ -78,7 +107,7 @@ class GeminiClient:
         self._model = model
         self._timeout = timeout
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, response_schema: dict[str, Any] | None = None) -> str:
         api_keys = [key for key in (self._api_key, self._backup_api_key) if key]
         if not api_keys:
             raise LLMError("Gemini is not configured.")
@@ -89,7 +118,7 @@ class GeminiClient:
                 "temperature": 0,
                 "maxOutputTokens": 1024,
                 "responseMimeType": "application/json",
-                "responseSchema": GEMINI_QUERY_PLAN_SCHEMA,
+                "responseSchema": response_schema or GEMINI_QUERY_PLAN_SCHEMA,
             },
         }
         for index, api_key in enumerate(api_keys):
