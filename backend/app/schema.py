@@ -17,10 +17,8 @@ COLUMN_METADATA: dict[str, dict[str, Any]] = {
 }
 
 BUSINESS_RULES = [
-    "Each row represents one order.",
-    "Revenue is already calculated for each order.",
-    "All monetary values are in USD.",
-    "Dates use YYYY-MM-DD.",
+    "Each row is one record in the uploaded dataset.",
+    "Use only facts, columns, types, and allowed values shown in the schema.",
     "Do not infer information that is not present in the dataset.",
 ]
 
@@ -54,8 +52,23 @@ def build_schema(df: pd.DataFrame) -> list[dict[str, Any]]:
     return schema
 
 
+def example_questions(schema: list[dict[str, Any]]) -> list[str]:
+    names = [item["name"] for item in schema]
+    if set(COLUMN_METADATA).issubset(names):
+        return EXAMPLE_QUESTIONS
+    first = names[0]
+    questions = [
+        "Show the first 20 rows",
+        f"How many unique values are in {first}?",
+        f"Sort by {first}",
+        f"Show records where {first} is not empty",
+    ]
+    if len(names) > 1:
+        questions.extend([f"Group by {first} and count {names[1]}", f"Show only {first} and {names[1]}"])
+    return questions[:6]
+
+
 def validate_declared_columns(df: pd.DataFrame) -> None:
     unknown = set(COLUMN_METADATA) - set(df.columns)
     if unknown:
         raise RuntimeError(f"Schema metadata references missing columns: {sorted(unknown)}")
-

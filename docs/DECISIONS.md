@@ -15,4 +15,8 @@
 6. Only low-cardinality string columns expose allowed values. Identifier-like
    columns such as `order_id` are omitted to keep schema responses and prompts
    compact.
-
+7. Uploaded CSV files are UTF-8, limited to 10 MB, 100,000 rows, and 100
+   columns. They are held in process memory under random dataset IDs and vanish
+   when the backend restarts; this avoids silently persisting user data.
+8. Date-like uploaded columns are converted only when their names indicate a
+   date/time and every non-empty value parses successfully.

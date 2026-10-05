@@ -9,14 +9,16 @@ from contextlib import asynccontextmanager
 from typing import Any, Callable
 
 import pandas as pd
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
 from .config import Settings
+from .datasets import MAX_UPLOAD_BYTES, DatasetError, DatasetRegistry
+from .executor import dataframe_page
 from .llm_client import GeminiClient, LLMError
-from .schema import EXAMPLE_QUESTIONS, build_schema, validate_declared_columns
+from .schema import validate_declared_columns
 from .service import QueryService
 
 
@@ -33,6 +35,7 @@ class QueryRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     question: str = Field(min_length=1, max_length=500)
     history: list[HistoryMessage] = Field(default_factory=list, max_length=6)
+    dataset_id: str = Field(default="default", min_length=1, max_length=64, pattern=r"^(default|[a-f0-9]{32})$")
 
 
 class RateLimiter:
@@ -71,13 +74,12 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         frame = _load_data(app_settings)
-        schema = build_schema(frame)
-        app.state.schema = schema
         if service_factory:
-            app.state.query_service = service_factory(frame, schema)
+            service_builder = service_factory
         else:
             client = GeminiClient(app_settings.gemini_api_key, app_settings.gemini_model)
-            app.state.query_service = QueryService(frame, schema, client)
+            service_builder = lambda dataset, schema: QueryService(dataset, schema, client)
+        app.state.datasets = DatasetRegistry(frame, service_builder)
         yield
 
     app = FastAPI(title="Secure CSV Chatbot", version="1.0.0", lifespan=lifespan)
@@ -91,7 +93,7 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
 
     @app.middleware("http")
     async def rate_limit(request: Request, call_next: Callable[..., Any]):
-        if request.url.path == "/api/query" and request.method == "POST":
+        if request.url.path in {"/api/query", "/api/datasets"} and request.method == "POST":
             ip = request.client.host if request.client else "unknown"
             if not limiter.allow(ip):
                 return JSONResponse(status_code=429, content={"error": "Rate limit exceeded. Try again shortly."})
@@ -102,20 +104,67 @@ def create_app(settings: Settings | None = None, service_factory: Callable[[pd.D
         return {"status": "ok"}
 
     @app.get("/api/schema")
-    async def schema(request: Request) -> dict[str, Any]:
-        return {"columns": request.app.state.schema, "examples": EXAMPLE_QUESTIONS}
+    async def schema(request: Request, dataset_id: str = "default") -> JSONResponse:
+        try:
+            dataset = request.app.state.datasets.get(dataset_id)
+            return JSONResponse(content={"columns": dataset.schema, "examples": dataset.examples})
+        except DatasetError as exc:
+            return JSONResponse(status_code=404, content={"error": str(exc)})
+
+    @app.post("/api/datasets")
+    async def upload_dataset(
+        request: Request,
+        filename: str = Query(default="Uploaded CSV", min_length=1, max_length=120),
+    ) -> JSONResponse:
+        content = bytearray()
+        async for chunk in request.stream():
+            content.extend(chunk)
+            if len(content) > MAX_UPLOAD_BYTES:
+                return JSONResponse(status_code=413, content={"error": "The CSV exceeds the 10 MB upload limit."})
+        try:
+            dataset = request.app.state.datasets.add_upload(filename, bytes(content))
+            return JSONResponse(status_code=201, content=request.app.state.datasets.summary(dataset))
+        except DatasetError as exc:
+            return JSONResponse(status_code=422, content={"error": str(exc)})
+
+    @app.get("/api/datasets/{dataset_id}/rows")
+    async def dataset_rows(
+        dataset_id: str,
+        request: Request,
+        offset: int = Query(default=0, ge=0),
+        limit: int = Query(default=100, ge=1, le=500),
+    ) -> JSONResponse:
+        try:
+            dataset = request.app.state.datasets.get(dataset_id)
+            result = dataframe_page(dataset.frame, offset, limit)
+            return JSONResponse(content={
+                "dataset_id": dataset.dataset_id,
+                "name": dataset.name,
+                "columns": result.columns,
+                "rows": result.rows,
+                "row_count": result.row_count,
+                "offset": offset,
+                "limit": limit,
+                "has_more": result.truncated,
+            })
+        except DatasetError as exc:
+            return JSONResponse(status_code=404, content={"error": str(exc)})
 
     @app.post("/api/query")
     async def query(payload: QueryRequest, request: Request) -> JSONResponse:
         started = time.perf_counter()
-        log_data: dict[str, Any] = {"event": "query", "question": payload.question}
+        log_data: dict[str, Any] = {"event": "query", "question": payload.question, "dataset_id": payload.dataset_id}
         try:
-            result = request.app.state.query_service.query(
+            service = request.app.state.datasets.get_service(payload.dataset_id)
+            result = service.query(
                 payload.question,
                 [message.model_dump() for message in payload.history],
             )
             log_data["plan"] = result.get("plan")
             return JSONResponse(content=result)
+        except DatasetError as exc:
+            log_data["error"] = type(exc).__name__
+            return JSONResponse(status_code=404, content={"error": str(exc)})
         except LLMError as exc:
             log_data["error"] = type(exc).__name__
             return JSONResponse(status_code=502, content={"error": "The language model request failed."})

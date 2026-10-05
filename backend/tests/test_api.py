@@ -88,3 +88,44 @@ def test_rate_limit() -> None:
         assert client.post("/api/query", json={"question": "one"}).status_code == 200
         assert client.post("/api/query", json={"question": "two"}).status_code == 429
 
+
+def test_upload_csv_browse_rows_and_query_it() -> None:
+    service = StubService()
+    csv = b"customer,joined_date,spend\nAda,2026-01-02,12.5\nLin,2026-02-03,20.0\n"
+    with make_client(service) as client:
+        uploaded = client.post("/api/datasets?filename=customers.csv", content=csv, headers={"Content-Type": "text/csv"})
+        assert uploaded.status_code == 201
+        body = uploaded.json()
+        dataset_id = body["dataset_id"]
+        assert body["name"] == "customers.csv"
+        assert body["row_count"] == 2
+        assert body["column_names"] == ["customer", "joined_date", "spend"]
+
+        rows = client.get(f"/api/datasets/{dataset_id}/rows?offset=1&limit=1")
+        assert rows.status_code == 200
+        assert rows.json()["rows"] == [{"customer": "Lin", "joined_date": "2026-02-03T00:00:00", "spend": 20.0}]
+
+        schema = client.get(f"/api/schema?dataset_id={dataset_id}")
+        assert schema.status_code == 200
+        assert [item["name"] for item in schema.json()["columns"]] == ["customer", "joined_date", "spend"]
+
+        queried = client.post("/api/query", json={"question": "show customers", "dataset_id": dataset_id})
+        assert queried.status_code == 200
+        assert service.calls[-1][0] == "show customers"
+
+
+def test_upload_rejects_invalid_and_oversized_files() -> None:
+    with make_client(StubService(), rate=5) as client:
+        invalid = client.post("/api/datasets?filename=bad.csv", content=b"\xff\xfe")
+        assert invalid.status_code == 422
+        too_large = client.post("/api/datasets?filename=large.csv", content=b"x" * (10 * 1024 * 1024 + 1))
+        assert too_large.status_code == 413
+
+
+def test_unknown_dataset_is_clean_error() -> None:
+    missing = "a" * 32
+    with make_client(StubService()) as client:
+        response = client.get(f"/api/datasets/{missing}/rows")
+        query = client.post("/api/query", json={"question": "hello", "dataset_id": missing})
+    assert response.status_code == 404
+    assert query.status_code == 404

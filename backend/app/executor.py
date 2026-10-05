@@ -22,6 +22,22 @@ class ExecutionResult:
     truncated: bool
 
 
+def dataframe_page(df: pd.DataFrame, offset: int = 0, limit: int = 100) -> ExecutionResult:
+    safe_offset = max(offset, 0)
+    safe_limit = min(max(limit, 1), 500)
+    page = df.iloc[safe_offset : safe_offset + safe_limit]
+    rows = [
+        {str(column): _json_value(value) for column, value in record.items()}
+        for record in page.to_dict(orient="records")
+    ]
+    return ExecutionResult(
+        columns=[str(column) for column in page.columns],
+        rows=rows,
+        row_count=len(df),
+        truncated=safe_offset + len(page) < len(df),
+    )
+
+
 def _require_column(column: str, columns: list[str], context: str) -> None:
     if column not in columns:
         raise PlanExecutionError(f"Unknown column '{column}' in {context}.")
@@ -134,15 +150,4 @@ def execute_plan(df: pd.DataFrame, plan: QueryPlan) -> ExecutionResult:
         _require_column(plan.sort_by, list(result.columns), "sort_by")
         result = result.sort_values(plan.sort_by, ascending=plan.ascending, kind="stable")
 
-    total = len(result)
-    limited = result.head(min(plan.limit, 500))
-    rows = [
-        {str(column): _json_value(value) for column, value in record.items()}
-        for record in limited.to_dict(orient="records")
-    ]
-    return ExecutionResult(
-        columns=[str(column) for column in limited.columns],
-        rows=rows,
-        row_count=total,
-        truncated=total > len(limited),
-    )
+    return dataframe_page(result, limit=min(plan.limit, 500))

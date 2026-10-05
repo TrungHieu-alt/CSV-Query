@@ -5,6 +5,10 @@ plan and executes that plan through an allowlist-based Pandas engine. A static
 HTML/CSS/JavaScript frontend provides the chat experience. Model output is
 always treated as data and is never executed as Python.
 
+The Data Explorer displays the bundled CSV with pagination and accepts custom
+UTF-8 CSV uploads. Selecting a dataset switches both the table and chat to that
+file. Uploads are kept in memory and removed when the backend restarts.
+
 ## Run locally on Windows PowerShell
 
 Prerequisites: Python 3.14 and a Gemini API key.
@@ -61,6 +65,8 @@ more than 500 rows.
 
 - `GET /api/health` — service health
 - `GET /api/schema` — generated column metadata and example questions
+- `POST /api/datasets?filename=file.csv` — upload raw UTF-8 CSV bytes
+- `GET /api/datasets/{dataset_id}/rows` — paginated rows for the explorer
 - `POST /api/query` — `{ "question": "...", "history": [] }`
 
 Implementation tradeoffs and production follow-ups are recorded in
