@@ -7,7 +7,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from .plan import Filter, QueryPlan
+from .plan import Filter, QueryPlan, TimeGroup
 
 
 class PlanExecutionError(ValueError):
@@ -20,6 +20,7 @@ class ExecutionResult:
     rows: list[dict[str, Any]]
     row_count: int
     truncated: bool
+    dataframe: pd.DataFrame
 
 
 def dataframe_page(df: pd.DataFrame, offset: int = 0, limit: int = 100) -> ExecutionResult:
@@ -35,6 +36,7 @@ def dataframe_page(df: pd.DataFrame, offset: int = 0, limit: int = 100) -> Execu
         rows=rows,
         row_count=len(df),
         truncated=safe_offset + len(page) < len(df),
+        dataframe=df,
     )
 
 
@@ -114,8 +116,16 @@ def execute_plan(df: pd.DataFrame, plan: QueryPlan) -> ExecutionResult:
     for item in plan.filters:
         frame = _apply_filter(frame, item)
 
-    for column in plan.group_by:
+    grouped_columns = [item if isinstance(item, str) else item.column for item in plan.group_by]
+    for column in grouped_columns:
         _require_column(column, source_columns, "group_by")
+    for item in plan.group_by:
+        if isinstance(item, TimeGroup):
+            series = frame[item.column]
+            if not pd.api.types.is_datetime64_any_dtype(series.dtype):
+                raise PlanExecutionError(f"Time grain requires a date/time column; '{item.column}' is not date/time.")
+            periods = {"day": "D", "week": "W-SUN", "month": "M", "quarter": "Q"}
+            frame[item.column] = series.dt.to_period(periods[item.grain]).dt.start_time
     for item in plan.aggregations:
         _require_column(item.column, source_columns, "aggregation")
 
@@ -124,8 +134,8 @@ def execute_plan(df: pd.DataFrame, plan: QueryPlan) -> ExecutionResult:
             item.alias: pd.NamedAgg(column=item.column, aggfunc=item.func)
             for item in plan.aggregations
         }
-        if plan.group_by:
-            result = frame.groupby(plan.group_by, dropna=False).agg(**named).reset_index()
+        if grouped_columns:
+            result = frame.groupby(grouped_columns, dropna=False).agg(**named).reset_index()
         else:
             values: dict[str, Any] = {}
             for item in plan.aggregations:

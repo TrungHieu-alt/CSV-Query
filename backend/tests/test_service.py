@@ -31,7 +31,21 @@ def test_valid_plan(frame: pd.DataFrame) -> None:
     client = FakeClient([plan(select=["region"])])
     response = QueryService(frame, [], client).query("show regions")
     assert response["columns"] == ["region"]
+    assert response["viz"]["type"] == "table"
     assert len(client.prompts) == 1
+
+
+def test_unsorted_bar_is_descending(frame: pd.DataFrame) -> None:
+    client = FakeClient([plan(group_by=["region"], aggregations=[{"column": "revenue", "func": "sum", "alias": "total_revenue"}])])
+    response = QueryService(frame, [], client).query("revenue by region")
+    assert response["viz"]["type"] == "bar"
+    assert [row["total_revenue"] for row in response["rows"]] == [20.0, 10.0]
+
+
+def test_explicit_bar_sort_is_preserved(frame: pd.DataFrame) -> None:
+    client = FakeClient([plan(group_by=["region"], aggregations=[{"column": "revenue", "func": "sum", "alias": "total_revenue"}], sort_by="total_revenue", ascending=True)])
+    response = QueryService(frame, [], client).query("revenue by region ascending")
+    assert [row["total_revenue"] for row in response["rows"]] == [10.0, 20.0]
 
 
 def test_invalid_json_repair_success(frame: pd.DataFrame) -> None:

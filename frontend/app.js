@@ -17,6 +17,9 @@ const UI = Object.freeze({
   errorPrefix: "Sorry, that request could not be completed: ",
   networkError: "The API is unavailable. Check that the backend is running.",
   generatedPlan: "Generated plan",
+  chart: "Chart",
+  table: "Table",
+  downloadCsv: "Download CSV",
   noRows: "No matching rows.",
   truncated: "Showing the first 500 rows.",
   rowCount: (count) => `${count.toLocaleString()} result${count === 1 ? "" : "s"}`,
@@ -118,7 +121,7 @@ function createTable(columns, rows) {
     const tableRow = document.createElement("tr");
     columns.forEach((column) => {
       const cell = document.createElement("td");
-      cell.textContent = row[column] === null ? "—" : String(row[column]);
+      cell.textContent = formatValue(row[column], column);
       tableRow.append(cell);
     });
     body.append(tableRow);
@@ -126,6 +129,170 @@ function createTable(columns, rows) {
   table.append(head, body);
   wrapper.append(table);
   return wrapper;
+}
+
+function readableLabel(value) {
+  return String(value ?? "").replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function axisLabel(column) {
+  const label = readableLabel(column);
+  if (/revenue|price|sales|income|cost/i.test(column ?? "")) return `${label} (USD)`;
+  if (/quantity|units|items/i.test(column ?? "")) return `${label} (items)`;
+  return label;
+}
+
+function formatValue(value, column = "") {
+  if (value === null || value === undefined || (typeof value === "number" && Number.isNaN(value))) return "—";
+  if (typeof value === "number") {
+    const options = { maximumFractionDigits: Number.isInteger(value) ? 0 : 2 };
+    const formatted = value.toLocaleString(undefined, options);
+    return /revenue|price|sales|income|cost/i.test(column) ? `$${formatted}` : formatted;
+  }
+  return String(value);
+}
+
+function csvCell(value) {
+  const cell = value === null || value === undefined ? "" : String(value);
+  return `"${cell.replaceAll('"', '""')}"`;
+}
+
+function downloadCsv(data) {
+  const lines = [data.columns.map(csvCell).join(",")];
+  data.rows.forEach((row) => lines.push(data.columns.map((column) => csvCell(row[column])).join(",")));
+  const blob = new Blob([`\uFEFF${lines.join("\r\n")}`], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "query-result.csv";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function makeActionButton(label, action) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "result-action";
+  button.textContent = label;
+  button.addEventListener("click", action);
+  return button;
+}
+
+function chartColors(count) {
+  const palette = ["#173f2b", "#ca6b3f", "#5976a5", "#8a5b8e", "#8d792d", "#397f78"];
+  return Array.from({ length: count }, (_, index) => palette[index % palette.length]);
+}
+
+function truncateLabel(value) {
+  const label = String(value ?? "—");
+  return label.length > 24 ? `${label.slice(0, 21)}…` : label;
+}
+
+function createChart(data) {
+  const canvas = document.createElement("canvas");
+  canvas.setAttribute("aria-label", `${readableLabel(data.viz.type)} visualization`);
+  canvas.setAttribute("role", "img");
+  const x = data.viz.x;
+  const yColumns = data.viz.y || [];
+  let labels = data.rows.map((row) => row[x]);
+  let datasets;
+
+  if (data.viz.type === "grouped_bar") {
+    const groups = [...new Set(data.rows.map((row) => String(row[data.viz.series] ?? "—")))];
+    labels = [...new Set(data.rows.map((row) => String(row[x] ?? "—")))];
+    const colors = chartColors(groups.length);
+    datasets = groups.map((group, index) => ({
+      label: group,
+      sourceColumn: yColumns[0],
+      data: labels.map((label) => data.rows.find((row) => String(row[x] ?? "—") === label && String(row[data.viz.series] ?? "—") === group)?.[yColumns[0]] ?? null),
+      backgroundColor: colors[index],
+      borderColor: colors[index],
+      borderWidth: 2,
+    }));
+  } else {
+    const colors = chartColors(yColumns.length);
+    datasets = yColumns.map((column, index) => ({
+      label: readableLabel(column),
+      sourceColumn: column,
+      data: data.rows.map((row) => row[column]),
+      backgroundColor: colors[index],
+      borderColor: colors[index],
+      borderWidth: 2,
+      tension: 0.2,
+    }));
+  }
+
+  const longLabels = labels.some((label) => String(label ?? "").length > 18);
+  const chart = new Chart(canvas, {
+    type: data.viz.type === "line" ? "line" : "bar",
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: data.viz.type === "bar" && longLabels ? "y" : "x",
+      plugins: {
+        legend: { display: datasets.length > 1 || data.viz.type === "grouped_bar" },
+        tooltip: { callbacks: {
+          title: (items) => items.length ? String(labels[items[0].dataIndex] ?? "—") : "",
+          label: (item) => `${item.dataset.label}: ${formatValue(item.raw, item.dataset.sourceColumn)}`,
+        } },
+      },
+      scales: {
+        x: { ticks: { callback: function(value) { return truncateLabel(this.getLabelForValue(value)); } }, title: { display: true, text: readableLabel(x) } },
+        y: { beginAtZero: data.viz.type !== "line", title: { display: true, text: yColumns.map(axisLabel).join(", ") } },
+      },
+    },
+  });
+  canvas.chartInstance = chart;
+  return canvas;
+}
+
+function createKpis(data) {
+  const grid = document.createElement("div");
+  grid.className = "kpi-grid";
+  (data.viz.y || []).forEach((column) => {
+    const card = document.createElement("section");
+    card.className = "kpi-card";
+    const value = document.createElement("strong");
+    value.textContent = formatValue(data.rows[0]?.[column], column);
+    const label = document.createElement("span");
+    label.textContent = readableLabel(column);
+    card.append(value, label);
+    grid.append(card);
+  });
+  return grid;
+}
+
+function renderResult(message, data) {
+  const actions = document.createElement("div");
+  actions.className = "result-actions";
+  const table = createTable(data.columns, data.rows);
+  table.hidden = data.viz?.type !== "table";
+  let visual = null;
+
+  if (data.viz?.type === "kpi") {
+    visual = createKpis(data);
+  } else if (["line", "bar", "grouped_bar"].includes(data.viz?.type) && typeof Chart !== "undefined") {
+    const chartWrap = document.createElement("div");
+    chartWrap.className = "chart-wrap";
+    chartWrap.append(createChart(data));
+    visual = chartWrap;
+  } else {
+    table.hidden = false;
+  }
+
+  if (visual) {
+    actions.append(
+      makeActionButton(UI.chart, () => { visual.hidden = false; table.hidden = true; }),
+      makeActionButton(UI.table, () => { visual.hidden = true; table.hidden = false; }),
+    );
+  }
+  actions.append(makeActionButton(UI.downloadCsv, () => downloadCsv(data)));
+  message.append(actions);
+  if (visual) message.append(visual);
+  message.append(table);
 }
 
 function setLoading(loading) {
@@ -217,10 +384,11 @@ async function ask(question) {
     }
     const label = data.row_count === 0 ? UI.noRows : UI.rowCount(data.row_count);
     const message = appendMessage("assistant", label);
-    if (data.rows?.length) message.append(createTable(data.columns, data.rows));
+    renderResult(message, data);
     if (data.truncated) {
       const note = document.createElement("p");
-      note.textContent = UI.truncated;
+      note.className = "truncation-note";
+      note.textContent = `Showing ${data.rows.length.toLocaleString()} of ${data.row_count.toLocaleString()} rows (maximum 500).`;
       message.append(note);
     }
     appendPlan(message, data.plan);

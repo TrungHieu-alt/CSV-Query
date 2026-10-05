@@ -7,6 +7,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 
 FilterOperator = Literal["==", "!=", ">", ">=", "<", "<=", "in", "contains"]
 AggregationFunction = Literal["sum", "mean", "count", "min", "max", "nunique"]
+TimeGrain = Literal["day", "week", "month", "quarter"]
 
 
 class Filter(BaseModel):
@@ -25,12 +26,19 @@ class Aggregation(BaseModel):
     alias: str = Field(min_length=1, pattern=r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 
+class TimeGroup(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    column: str = Field(min_length=1)
+    grain: TimeGrain
+
+
 class QueryPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     clarify: str | None = None
     filters: list[Filter] = Field(default_factory=list)
-    group_by: list[str] = Field(default_factory=list)
+    group_by: list[str | TimeGroup] = Field(default_factory=list)
     aggregations: list[Aggregation] = Field(default_factory=list)
     select: list[str] = Field(default_factory=list)
     sort_by: str | None = None
@@ -67,7 +75,9 @@ class QueryPlan(BaseModel):
         aliases = [item.alias for item in self.aggregations]
         if len(aliases) != len(set(aliases)):
             raise ValueError("aggregation aliases must be unique")
-        if set(aliases) & set(self.group_by):
+        grouped_columns = [item if isinstance(item, str) else item.column for item in self.group_by]
+        if len(grouped_columns) != len(set(grouped_columns)):
+            raise ValueError("group_by columns must be unique")
+        if set(aliases) & set(grouped_columns):
             raise ValueError("aggregation aliases cannot duplicate group_by columns")
         return self
-

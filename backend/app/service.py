@@ -6,9 +6,10 @@ from typing import Any, Protocol
 import pandas as pd
 from pydantic import ValidationError
 
-from .executor import PlanExecutionError, execute_plan
+from .executor import PlanExecutionError, dataframe_page, execute_plan
 from .plan import QueryPlan
 from .prompts import build_prompt, build_repair_prompt
+from .viz import choose_viz
 
 
 class LLMClient(Protocol):
@@ -37,12 +38,19 @@ class QueryService:
         if plan.clarify:
             return {"clarify": plan.clarify}
         result = execute_plan(self._df, plan)
+        viz = choose_viz(result.dataframe, plan)
+        if viz["type"] == "bar" and not plan.sort_by:
+            result = dataframe_page(
+                result.dataframe.sort_values(viz["y"][0], ascending=False, kind="stable"),
+                limit=plan.limit,
+            )
         return {
             "plan": plan.model_dump(mode="json"),
             "columns": result.columns,
             "rows": result.rows,
             "row_count": result.row_count,
             "truncated": result.truncated,
+            "viz": viz,
         }
 
     def query(self, question: str, history: list[dict[str, str]] | None = None) -> dict[str, Any]:

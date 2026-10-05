@@ -20,3 +20,16 @@
    when the backend restarts; this avoids silently persisting user data.
 8. Date-like uploaded columns are converted only when their names indicate a
    date/time and every non-empty value parses successfully.
+9. Time-grain grouping accepts either the original string column form or a
+   strict `{column, grain}` object. Weeks start on Monday; month and quarter
+   labels use the first calendar day, producing stable ISO date values.
+10. Visualization selection is deterministic and uses the full computed result
+    before the response limit is applied. Raw-row queries always remain tables.
+11. Unsorted single-category bars are displayed in descending metric order;
+    an explicit query-plan sort is never replaced.
+12. Visualization metadata uses `x` and `series` column names plus a `y` list,
+    which supports one or several KPI/line metrics without changing the shape.
+13. Chart.js is the only new browser dependency and is pinned to version 4.4.7
+    from jsDelivr. No Python dependency was needed for Step 1.
+14. CSV downloads contain the returned result page (at most 500 rows), matching
+    exactly what the user can inspect in the fallback table.
