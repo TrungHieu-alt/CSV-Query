@@ -5,6 +5,7 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_BACKUP_API_KEY: ${GEMINI_BACKUP_API_KEY:-}
       GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
       ALLOWED_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
       CSV_PATH: /app/backend/data/sales_data.csv
@@ -25,4 +26,3 @@ services:
         condition: service_healthy
     ports:
       - "8080:80"
-

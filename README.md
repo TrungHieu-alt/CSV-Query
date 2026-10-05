@@ -11,7 +11,8 @@ file. Uploads are kept in memory and removed when the backend restarts.
 
 ## Run locally on Windows PowerShell
 
-Prerequisites: Python 3.14 and a Gemini API key.
+Prerequisites: Python 3.14 and a Gemini API key. A second key is optional and
+is used only when the primary key receives an HTTP 429 rate-limit response.
 
 ```powershell
 Copy-Item .env.example .env
@@ -32,7 +33,8 @@ Open <http://localhost:8080>. API documentation is available at
 
 ## Run with Docker
 
-Create `.env` from `.env.example`, set `GEMINI_API_KEY`, then run:
+Create `.env` from `.env.example`, set `GEMINI_API_KEY` and optionally
+`GEMINI_BACKUP_API_KEY`, then run:
 
 ```powershell
 docker compose up --build
@@ -53,6 +55,7 @@ Tests use fake LLM clients and never contact Gemini.
 | Variable | Default | Purpose |
 |---|---|---|
 | `GEMINI_API_KEY` | none | Required for query requests |
+| `GEMINI_BACKUP_API_KEY` | none | Retried once when the primary receives HTTP 429 |
 | `GEMINI_MODEL` | `gemini-2.5-flash` | Gemini model identifier |
 | `ALLOWED_ORIGINS` | local frontend URLs | Comma-separated CORS origins |
 | `CSV_PATH` | `backend/data/sales_data.csv` | CSV file location |

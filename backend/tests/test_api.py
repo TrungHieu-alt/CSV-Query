@@ -24,6 +24,7 @@ class StubService:
 def make_client(service: StubService, rate: int = 20, llm_client: Any | None = None) -> TestClient:
     settings = Settings(
         gemini_api_key="test-secret-key",
+        gemini_backup_api_key="test-backup-secret-key",
         csv_path=Path(__file__).parents[1] / "data" / "sales_data.csv",
         allowed_origins=["http://localhost:8080"],
         rate_limit_per_minute=rate,
@@ -52,6 +53,7 @@ def test_gemini_health_uses_injected_client_without_exposing_key() -> None:
     assert response.status_code == 200
     assert response.json() == {"status": "ok", "provider": "gemini", "model": "gemini-2.5-flash"}
     assert "test-secret-key" not in response.text
+    assert "test-backup-secret-key" not in response.text
 
 
 def test_gemini_health_returns_clean_failure() -> None:

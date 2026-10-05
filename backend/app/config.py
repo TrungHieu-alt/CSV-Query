@@ -19,8 +19,8 @@ def _origins() -> list[str]:
 @dataclass(frozen=True)
 class Settings:
     gemini_api_key: str = field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
+    gemini_backup_api_key: str = field(default_factory=lambda: os.getenv("GEMINI_BACKUP_API_KEY", ""))
     gemini_model: str = field(default_factory=lambda: os.getenv("GEMINI_MODEL", "gemini-2.5-flash"))
     allowed_origins: list[str] = field(default_factory=_origins)
     csv_path: Path = field(default_factory=lambda: Path(os.getenv("CSV_PATH", str(PROJECT_ROOT / "backend" / "data" / "sales_data.csv"))))
     rate_limit_per_minute: int = 20
-

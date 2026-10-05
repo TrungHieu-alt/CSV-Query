@@ -79,7 +79,11 @@ def create_app(
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         frame = _load_data(app_settings)
-        client = llm_client or GeminiClient(app_settings.gemini_api_key, app_settings.gemini_model)
+        client = llm_client or GeminiClient(
+            app_settings.gemini_api_key,
+            app_settings.gemini_model,
+            backup_api_key=app_settings.gemini_backup_api_key,
+        )
         app.state.gemini_client = client
         if service_factory:
             service_builder = service_factory
@@ -205,8 +209,9 @@ def create_app(
         finally:
             log_data["duration_ms"] = round((time.perf_counter() - started) * 1000, 2)
             serialized = json.dumps(log_data, ensure_ascii=False, default=str)
-            if app_settings.gemini_api_key:
-                serialized = serialized.replace(app_settings.gemini_api_key, "[REDACTED]")
+            for secret in (app_settings.gemini_api_key, app_settings.gemini_backup_api_key):
+                if secret:
+                    serialized = serialized.replace(secret, "[REDACTED]")
             logger.info(serialized)
 
     return app

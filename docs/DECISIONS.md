@@ -39,3 +39,8 @@
 16. A response consisting solely of a `json` Markdown fence is unwrapped and
     still fully validated as data. Validation details are supplied only to the
     repair prompt; public API errors remain generic.
+17. Gemini key failover is attempted once and only for an HTTP 429 from the
+    primary key. Authentication, malformed responses, and network failures do
+    not trigger failover because another credential would not reliably fix them.
+    Identical keys are deduplicated, and both configured keys are redacted from
+    application logs.
