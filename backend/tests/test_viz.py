@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 
 from backend.app.plan import QueryPlan
-from backend.app.viz import choose_viz
+from backend.app.viz import choose_result_type, choose_viz
 
 
 def aggregate_plan(group_by: list[object] | None = None, sort_by: str | None = None) -> QueryPlan:
@@ -57,3 +57,21 @@ def test_table_fallbacks(frame: pd.DataFrame, plan: QueryPlan) -> None:
 def test_two_row_date_result_is_table() -> None:
     frame = pd.DataFrame({"month": pd.date_range("2026-01-01", periods=2, freq="MS"), "total": [3, 5]})
     assert choose_viz(frame, aggregate_plan([{"column": "month", "grain": "month"}]))["type"] == "table"
+
+
+@pytest.mark.parametrize(
+    "frame,plan,expected",
+    [
+        (pd.DataFrame({"total_revenue": [2417.73]}), aggregate_plan(), "value"),
+        (pd.DataFrame({"product": ["Laptop"]}), QueryPlan(select=["product"]), "value"),
+        (pd.DataFrame({"product": ["A", "B"], "total": [20, 10]}), aggregate_plan(["product"]), "categorical"),
+        (pd.DataFrame({"product": ["A"], "total": [20]}), aggregate_plan(["product"]), "categorical"),
+        (pd.DataFrame({"month": pd.date_range("2026-01-01", periods=2, freq="MS"), "total": [3, 5]}), aggregate_plan([{"column": "month", "grain": "month"}]), "time_series"),
+        (pd.DataFrame({"order_date": pd.date_range("2026-01-01", periods=2), "revenue": [3, 5]}), QueryPlan(), "table"),
+        (pd.DataFrame({"region": ["A"], "revenue": [3]}), QueryPlan(), "table"),
+        (pd.DataFrame({"total": [None]}), aggregate_plan(), "table"),
+        (pd.DataFrame(), aggregate_plan(), "table"),
+    ],
+)
+def test_result_type_preserves_values_aggregates_and_listings(frame: pd.DataFrame, plan: QueryPlan, expected: str) -> None:
+    assert choose_result_type(frame, plan) == expected

@@ -48,9 +48,6 @@ def build_schema(df: pd.DataFrame) -> list[dict[str, Any]]:
             values = sorted(str(value) for value in df[column].dropna().unique())
             if len(values) <= 50:
                 item["allowed_values"] = values
-        if pd.api.types.is_datetime64_any_dtype(df[column].dtype) and df[column].notna().any():
-            item["min"] = pd.Timestamp(df[column].min()).isoformat()
-            item["max"] = pd.Timestamp(df[column].max()).isoformat()
         schema.append(item)
     return schema
 

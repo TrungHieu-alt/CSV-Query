@@ -115,6 +115,7 @@ class Findings(BaseModel):
     sample_sizes: SampleSizes
     warnings: list[str] = Field(default_factory=list)
 
+<<<<<<< ours
     @model_validator(mode="after")
     def validate_tool_shape(self) -> Findings:
         if self.tool == "period_compare" and (self.grain is None or self.dimension is not None):
@@ -123,6 +124,8 @@ class Findings(BaseModel):
             raise ValueError("contribution findings require dimension and no grain")
         return self
 
+=======
+>>>>>>> theirs
 
 class AnalysisResult(BaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -212,10 +215,15 @@ def contribution(df: pd.DataFrame, request: ContributionRequest) -> AnalysisResu
     if params.dimension not in df.columns:
         raise AnalysisValidationError(f"Unknown dimension '{params.dimension}'.")
     date_column, current, baseline, values, change, samples, warnings = _base_findings(request, df)
+<<<<<<< ours
     current_dimensions = current[params.dimension].map(_dimension_value)
     baseline_dimensions = baseline[params.dimension].map(_dimension_value)
     grouped_current = current.assign(_dimension=current_dimensions).groupby("_dimension")[params.metric].agg(["sum", "size"])
     grouped_baseline = baseline.assign(_dimension=baseline_dimensions).groupby("_dimension")[params.metric].agg(["sum", "size"])
+=======
+    grouped_current = current.groupby(params.dimension, dropna=False)[params.metric].agg(["sum", "size"])
+    grouped_baseline = baseline.groupby(params.dimension, dropna=False)[params.metric].agg(["sum", "size"])
+>>>>>>> theirs
     dimension_values = grouped_current.index.union(grouped_baseline.index, sort=False)
     items: list[dict[str, Any]] = []
     for raw_value in dimension_values:
@@ -225,7 +233,11 @@ def contribution(df: pd.DataFrame, request: ContributionRequest) -> AnalysisResu
         baseline_size = int(grouped_baseline.loc[raw_value, "size"]) if raw_value in grouped_baseline.index else 0
         delta = current_sum - baseline_sum
         share = None if change.absolute == 0 else delta / change.absolute * 100
+<<<<<<< ours
         value = str(raw_value)
+=======
+        value = _dimension_value(raw_value)
+>>>>>>> theirs
         if current_size < 10 or baseline_size < 10:
             warnings.append(
                 f"Thin segment '{value}': current n={current_size}, baseline n={baseline_size} (fewer than 10 rows)."
@@ -288,6 +300,7 @@ def run_analysis(df: pd.DataFrame, request: PeriodCompareRequest | ContributionR
     if isinstance(request, ContributionRequest):
         return contribution(df, request)
     raise AnalysisValidationError("Unknown analysis tool.")
+<<<<<<< ours
 
 
 def validate_analysis_request(df: pd.DataFrame, request: PeriodCompareRequest | ContributionRequest) -> None:
@@ -295,3 +308,5 @@ def validate_analysis_request(df: pd.DataFrame, request: PeriodCompareRequest | 
     _date_column(df)
     if isinstance(request, ContributionRequest) and request.params.dimension not in df.columns:
         raise AnalysisValidationError(f"Unknown dimension '{request.params.dimension}'.")
+=======
+>>>>>>> theirs

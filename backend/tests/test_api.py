@@ -2,10 +2,12 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+import pytest
 from fastapi.testclient import TestClient
 
 from backend.app.config import Settings
 from backend.app.main import create_app
+from backend.app.llm_client import LLMError
 
 
 class StubService:
@@ -25,6 +27,7 @@ def make_client(service: StubService, rate: int = 20, llm_client: Any | None = N
     settings = Settings(
         gemini_api_key="test-secret-key",
         gemini_backup_api_key="test-backup-secret-key",
+        gemini_model="gemini-2.5-flash",
         csv_path=Path(__file__).parents[1] / "data" / "sales_data.csv",
         allowed_origins=["http://localhost:8080"],
         rate_limit_per_minute=rate,
@@ -41,9 +44,6 @@ def test_health_and_schema() -> None:
         assert 4 <= len(body["examples"]) <= 6
         order_id = body["columns"][0]
         assert "allowed_values" not in order_id
-        order_date = body["columns"][1]
-        assert order_date["min"] == "2025-01-01T00:00:00"
-        assert order_date["max"] == "2025-12-31T00:00:00"
 
 
 def test_gemini_health_uses_injected_client_without_exposing_key() -> None:
@@ -80,6 +80,13 @@ def test_query_and_history() -> None:
     assert service.calls[0][1][0]["content"] == "hello"
 
 
+def test_out_of_scope_is_a_successful_classification_not_a_query_failure() -> None:
+    with make_client(StubService(response={"out_of_scope": True})) as client:
+        response = client.post("/api/query", json={"question": "What is the capital of France?"})
+    assert response.status_code == 200
+    assert response.json() == {"out_of_scope": True}
+
+
 def test_input_limits_and_extra_fields() -> None:
     with make_client(StubService()) as client:
         assert client.post("/api/query", json={"question": "x" * 501}).status_code == 422
@@ -93,6 +100,19 @@ def test_clean_service_error() -> None:
         response = client.post("/api/query", json={"question": "bad"})
     assert response.status_code == 422
     assert "traceback" not in response.text.lower()
+
+
+@pytest.mark.parametrize("code,status", [("gemini_quota_exhausted", 503), ("gemini_connection_error", 502)])
+def test_provider_error_is_classified_without_leaking_details(code: str, status: int) -> None:
+    error = LLMError("private provider response", code=code, retry_after=30 if status == 503 else None)
+    with make_client(StubService(error=error)) as client:
+        response = client.post("/api/query", json={"question": "Total revenue"})
+    assert response.status_code == status
+    assert response.json()["error_code"] == code
+    assert "private" not in response.text
+    if status == 503:
+        assert response.json()["retry_after"] == 30
+        assert response.headers["Retry-After"] == "30"
 
 
 def test_prompt_injection_is_only_data() -> None:

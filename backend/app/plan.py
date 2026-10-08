@@ -37,6 +37,7 @@ class QueryPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     clarify: str | None = None
+    out_of_scope: bool = False
     filters: list[Filter] = Field(default_factory=list)
     group_by: list[str | TimeGroup] = Field(default_factory=list)
     aggregations: list[Aggregation] = Field(default_factory=list)
@@ -59,7 +60,7 @@ class QueryPlan(BaseModel):
     def validate_shape(self) -> QueryPlan:
         if self.limit < 1:
             raise ValueError("limit must be at least 1")
-        if self.clarify:
+        if self.clarify or self.out_of_scope:
             execution_fields = (
                 self.filters,
                 self.group_by,
@@ -68,7 +69,7 @@ class QueryPlan(BaseModel):
                 self.sort_by,
             )
             if any(execution_fields):
-                raise ValueError("a clarification plan cannot contain execution fields")
+                raise ValueError("a clarification or out-of-scope plan cannot contain execution fields")
             return self
         if self.group_by and not self.aggregations:
             raise ValueError("group_by requires at least one aggregation")

@@ -9,16 +9,6 @@ The Data Explorer displays the bundled CSV with pagination and accepts custom
 UTF-8 CSV uploads. Selecting a dataset switches both the table and chat to that
 file. Uploads are kept in memory and removed when the backend restarts.
 
-Query results are displayed automatically as KPI cards, line charts, bar
-charts, grouped bars, or tables. Every result can be downloaded as CSV, and
-chart results retain a table fallback.
-
-For comparison and contribution questions, the model selects one of two
-allowlisted analysis tools. Trusted Pandas code computes the values, changes,
-sample sizes, and contributors. A separate model call explains only the
-structured findings; an unsupported number causes deterministic narration to
-replace the model output.
-
 ## Run locally on Windows PowerShell
 
 Prerequisites: Python 3.14 and a Gemini API key. A second key is optional and
@@ -65,20 +55,29 @@ Tests use fake LLM clients and never contact Gemini.
 | Variable | Default | Purpose |
 |---|---|---|
 | `GEMINI_API_KEY` | none | Required for query requests |
-| `GEMINI_BACKUP_API_KEY` | none | Retried once when the primary receives HTTP 429 |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Gemini model identifier |
+| `GEMINI_BACKUP_API_KEY` | none | Tried immediately on quota/rate-limit errors; reused for subsequent requests |
+| `GEMINI_MODEL` | `gemini-3-flash-preview` | Preferred Gemini model |
+| `GEMINI_FALLBACK_MODEL` | `gemini-2.5-flash` | Tried on the same key before switching keys |
 | `ALLOWED_ORIGINS` | local frontend URLs | Comma-separated CORS origins |
 | `CSV_PATH` | `backend/data/sales_data.csv` | CSV file location |
 
 The API accepts questions up to 500 characters and at most six history turns.
+Gemini quota detection recognizes HTTP 429 and structured `RESOURCE_EXHAUSTED`
+errors. The default order is primary key with Gemini 3 Flash, primary key with
+Gemini 2.5 Flash, backup key with Gemini 3 Flash, then backup key with Gemini 2.5
+Flash. Quota cooldowns apply to each model/key combination, not the entire key.
+A limited combination is skipped until its retry delay expires (60 seconds by
+default, at least one hour for a reported daily quota). Each request chooses the
+highest-priority available combination, returning to Gemini 3 when its cooldown
+expires. All-combination exhaustion returns HTTP 503 with
+`error_code: "gemini_quota_exhausted"`, `retry_after`, and a `Retry-After` header.
+Connection errors remain HTTP 502 with `error_code: "gemini_connection_error"`;
+changing keys cannot fix a blocked network connection. No raw keys or provider
+responses are included in public errors. Keys in the same Google Cloud project
+share the project's quota.
+
 It rate-limits query requests to 20 per client IP per minute and never returns
 more than 500 rows.
-
-Analysis periods are represented as half-open ISO date ranges (`start`
-inclusive, `end` exclusive). `period_compare` compares summed numeric metrics;
-`contribution` attributes the change to one validated categorical dimension.
-Analysis responses add `answer`, `insights`, `findings`, and `follow_ups` while
-retaining the normal plan, table, and visualization fields.
 
 ## API
 
