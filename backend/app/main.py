@@ -16,6 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .config import Settings
 from .datasets import MAX_UPLOAD_BYTES, DatasetError, DatasetRegistry
+from .excel import EXCEL_EXTENSIONS, upload_excel
 from .executor import dataframe_page
 from .llm_client import GeminiClient, LLMError
 from .plan import QueryPlan
@@ -161,6 +162,8 @@ def create_app(
         request: Request,
         filename: str = Query(default="Uploaded CSV", min_length=1, max_length=120),
     ) -> JSONResponse:
+        if any(filename.lower().endswith(extension) for extension in EXCEL_EXTENSIONS):
+            return await upload_excel(request, filename)
         content = bytearray()
         async for chunk in request.stream():
             content.extend(chunk)

@@ -87,6 +87,14 @@ class DatasetRegistry:
         with self._lock:
             return self._add(uuid4().hex, safe_name, frame)
 
+    def add_excel_upload(self, name: str, content: bytes) -> list[Dataset]:
+        from .excel import parse_xlsx
+
+        sheets = parse_xlsx(content)
+        safe_name = name.strip()[:120] or "Uploaded workbook"
+        with self._lock:
+            return [self._add(uuid4().hex, f"{safe_name} – {sheet}", frame) for sheet, frame in sheets]
+
     def get(self, dataset_id: str) -> Dataset:
         with self._lock:
             dataset = self._datasets.get(dataset_id)

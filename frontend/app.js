@@ -518,6 +518,42 @@ async function uploadCsv(file) {
   } catch (error) { elements.status.textContent = friendlyError(error, "upload"); }
   finally { elements["upload-button"].disabled = false; elements["file-input"].value = ""; }
 }
+async function uploadExcel(file) {
+  if (!file.name.toLowerCase().endsWith(".xlsx")) {
+    elements.status.textContent = "Only .xlsx files are supported. Save the file as .xlsx and try again.";
+    return;
+  }
+  elements["upload-button"].disabled = true;
+  elements.status.textContent = "Validating and loading your workbook…";
+  try {
+    const response = await fetch(`${apiBaseUrl}/api/datasets?filename=${encodeURIComponent(file.name)}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+      body: file,
+    });
+    const data = await response.json().catch(() => null);
+    if (!response.ok) {
+      const error = new Error(data?.error || "Could not load this file. Use a valid .xlsx workbook with a header row.");
+      error.status = response.status;
+      throw error;
+    }
+    if (data.datasets) data.datasets.forEach((dataset) => datasets.set(dataset.dataset_id, dataset.name));
+    else datasets.set(data.dataset_id, data.name);
+    await selectDataset(data.dataset_id);
+    elements.status.textContent = `“${data.name}” is ready.`;
+  } catch (error) {
+    elements.status.textContent = error.name === "TypeError" || error.status === 429
+      ? friendlyError(error, "upload")
+      : error.status === 413 ? "This workbook exceeds the 10 MB upload limit." : error.message;
+  } finally {
+    elements["upload-button"].disabled = false;
+    elements["file-input"].value = "";
+  }
+}
+function uploadFile(file) {
+  if ([".xlsx", ".xls", ".xlsm"].some((extension) => file.name.toLowerCase().endsWith(extension))) return uploadExcel(file);
+  return uploadCsv(file);
+}
 function collapseChat(collapsed) {
   elements.workspace.classList.toggle("chat-collapsed", collapsed);
   elements["chat-panel"].hidden = collapsed;
@@ -541,6 +577,6 @@ elements["data-table"].addEventListener("scroll", () => requestAnimationFrame(re
 elements["close-chat"].addEventListener("click", () => collapseChat(true));
 elements["open-chat"].addEventListener("click", () => collapseChat(false));
 elements["upload-button"].addEventListener("click", () => elements["file-input"].click());
-elements["file-input"].addEventListener("change", () => { if (elements["file-input"].files[0]) uploadCsv(elements["file-input"].files[0]); });
+elements["file-input"].addEventListener("change", () => { if (elements["file-input"].files[0]) uploadFile(elements["file-input"].files[0]); });
 elements["dataset-select"].addEventListener("change", () => selectDataset(elements["dataset-select"].value));
 selectDataset("default");

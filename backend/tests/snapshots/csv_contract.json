@@ -1,0 +1,253 @@
+{
+  "upload": {
+    "dataset_id": "0123456789abcdef0123456789abcdef",
+    "name": "customers.csv",
+    "columns": [
+      {
+        "name": "customer",
+        "type": "str",
+        "description": "Dataset column.",
+        "allowed_values": [
+          "Ada",
+          "Lin"
+        ]
+      },
+      {
+        "name": "joined_date",
+        "type": "datetime64[us]",
+        "description": "Dataset column."
+      },
+      {
+        "name": "spend",
+        "type": "float64",
+        "description": "Dataset column."
+      }
+    ],
+    "column_names": [
+      "customer",
+      "joined_date",
+      "spend"
+    ],
+    "rows": [
+      {
+        "customer": "Ada",
+        "joined_date": "2026-01-02T00:00:00",
+        "spend": 12.5
+      },
+      {
+        "customer": "Lin",
+        "joined_date": "2026-02-03T00:00:00",
+        "spend": 20.0
+      }
+    ],
+    "row_count": 2
+  },
+  "schema": {
+    "columns": [
+      {
+        "name": "customer",
+        "type": "str",
+        "description": "Dataset column.",
+        "allowed_values": [
+          "Ada",
+          "Lin"
+        ]
+      },
+      {
+        "name": "joined_date",
+        "type": "datetime64[us]",
+        "description": "Dataset column."
+      },
+      {
+        "name": "spend",
+        "type": "float64",
+        "description": "Dataset column."
+      }
+    ],
+    "examples": [
+      "Show the first 20 rows",
+      "How many unique values are in customer?",
+      "Sort by customer",
+      "Show records where customer is not empty",
+      "Group by customer and count joined_date",
+      "Show only customer and joined_date"
+    ]
+  },
+  "rows": {
+    "dataset_id": "0123456789abcdef0123456789abcdef",
+    "name": "customers.csv",
+    "columns": [
+      "customer",
+      "joined_date",
+      "spend"
+    ],
+    "rows": [
+      {
+        "customer": "Ada",
+        "joined_date": "2026-01-02T00:00:00",
+        "spend": 12.5
+      }
+    ],
+    "row_count": 2,
+    "offset": 0,
+    "limit": 1,
+    "has_more": true
+  },
+  "queries": {
+    "total_revenue": {
+      "plan": {
+        "clarify": null,
+        "out_of_scope": false,
+        "filters": [],
+        "group_by": [],
+        "aggregations": [
+          {
+            "column": "revenue",
+            "func": "sum",
+            "alias": "total_revenue"
+          }
+        ],
+        "select": [],
+        "sort_by": null,
+        "ascending": true,
+        "limit": 50
+      },
+      "pandas_query": "import pandas as pd\n\n# df is the active CSV dataset, with dates already parsed.\nframe = df.copy()\nresult = pd.DataFrame([{'total_revenue': frame['revenue'].sum()}])\nresult = result.iloc[:50]",
+      "columns": [
+        "total_revenue"
+      ],
+      "rows": [
+        {
+          "total_revenue": 777549.78
+        }
+      ],
+      "row_count": 1,
+      "truncated": false,
+      "viz": {
+        "type": "kpi",
+        "x": null,
+        "y": [
+          "total_revenue"
+        ],
+        "series": null
+      },
+      "result_type": "value"
+    },
+    "top_products": {
+      "plan": {
+        "clarify": null,
+        "out_of_scope": false,
+        "filters": [],
+        "group_by": [
+          "product"
+        ],
+        "aggregations": [
+          {
+            "column": "revenue",
+            "func": "sum",
+            "alias": "total_revenue"
+          }
+        ],
+        "select": [],
+        "sort_by": "total_revenue",
+        "ascending": false,
+        "limit": 3
+      },
+      "pandas_query": "import pandas as pd\n\n# df is the active CSV dataset, with dates already parsed.\nframe = df.copy()\nresult = frame.groupby(['product'], dropna=False).agg(**{'total_revenue': pd.NamedAgg(column='revenue', aggfunc='sum')}).reset_index()\nresult = result.sort_values('total_revenue', ascending=False, kind='stable')\nresult = result.iloc[:3]",
+      "columns": [
+        "product",
+        "total_revenue"
+      ],
+      "rows": [
+        {
+          "product": "Smartphone",
+          "total_revenue": 199205.53
+        },
+        {
+          "product": "Laptop",
+          "total_revenue": 153189.66999999998
+        },
+        {
+          "product": "Tablet",
+          "total_revenue": 105234.16
+        }
+      ],
+      "row_count": 8,
+      "truncated": true,
+      "viz": {
+        "type": "bar",
+        "x": "product",
+        "y": [
+          "total_revenue"
+        ],
+        "series": null
+      },
+      "result_type": "categorical"
+    },
+    "march_by_day": {
+      "plan": {
+        "clarify": null,
+        "out_of_scope": false,
+        "filters": [
+          {
+            "column": "order_date",
+            "op": ">=",
+            "value": "2025-03-01"
+          },
+          {
+            "column": "order_date",
+            "op": "<",
+            "value": "2025-04-01"
+          }
+        ],
+        "group_by": [
+          {
+            "column": "order_date",
+            "grain": "day"
+          }
+        ],
+        "aggregations": [
+          {
+            "column": "revenue",
+            "func": "sum",
+            "alias": "total_revenue"
+          }
+        ],
+        "select": [],
+        "sort_by": null,
+        "ascending": true,
+        "limit": 3
+      },
+      "pandas_query": "import pandas as pd\n\n# df is the active CSV dataset, with dates already parsed.\nframe = df.copy()\nframe = frame.loc[frame['order_date'] >= pd.Timestamp('2025-03-01T00:00:00')]\nframe = frame.loc[frame['order_date'] < pd.Timestamp('2025-04-01T00:00:00')]\nframe['order_date'] = frame['order_date'].dt.to_period('D').dt.start_time\nresult = frame.groupby(['order_date'], dropna=False).agg(**{'total_revenue': pd.NamedAgg(column='revenue', aggfunc='sum')}).reset_index()\nresult = result.iloc[:3]",
+      "columns": [
+        "order_date",
+        "total_revenue"
+      ],
+      "rows": [
+        {
+          "order_date": "2025-03-01T00:00:00",
+          "total_revenue": 3340.72
+        },
+        {
+          "order_date": "2025-03-02T00:00:00",
+          "total_revenue": 2077.56
+        },
+        {
+          "order_date": "2025-03-03T00:00:00",
+          "total_revenue": 4427.23
+        }
+      ],
+      "row_count": 29,
+      "truncated": true,
+      "viz": {
+        "type": "line",
+        "x": "order_date",
+        "y": [
+          "total_revenue"
+        ],
+        "series": null
+      },
+      "result_type": "time_series"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ee">
+  <meta name="description" content="Meet CSV Data Studio. Explore CSV and Excel files, ask questions in plain English, and turn your data into clear charts.">
+  <title>CSV Data Studio — A little clarity for your data</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23173f2b'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h16M12 9v14M20 9v14' stroke='%23fbfcf7' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="landing.css">
+  <script src="landing.js" defer></script>
+</head>
+<body>
+  <div class="app-reveal" id="app-reveal" aria-hidden="true" inert>
+    <div class="app-loading"><span class="loading-mark" aria-hidden="true">✳</span><p>Your workspace is just ahead.</p><a href="../index.html">Open the app directly <span aria-hidden="true">↗</span></a></div>
+    <iframe id="app-preview" title="Data Studio transition preview" data-src="../index.html" tabindex="-1" aria-hidden="true"></iframe>
+  </div>
+  <div class="experience" id="experience">
+    <div class="landing-sheet" id="landing-sheet">
+      <header class="site-header">
+        <a href="./" class="brand" aria-label="CSV Data Studio home"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="7"/><path d="M7 8h14M7 14h14M7 20h14M12 8v12M17 8v12"/></svg><span>CSV Data Studio<span class="brand-dot">.</span></span></a>
+        <nav aria-label="Main navigation"><button type="button" class="nav-link" data-dialog="how-dialog">How it works</button><button type="button" class="nav-link" data-dialog="faq-dialog">Good to know</button><a class="nav-cta" href="../index.html" data-enter>Open app <span aria-hidden="true">↗</span></a></nav>
+      </header>
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A LITTLE CLARITY FOR YOUR DATA</p>
+            <h1 id="hero-title">Less spreadsheet.<br>More <em>perspective.</em></h1>
+            <p class="hero-description">Your data has a story. Find it.<br>Explore your CSV and Excel files, ask a question,<br class="desktop-break"> and let the numbers speak for themselves.</p>
+            <div class="hero-actions"><a class="primary-button" href="../index.html" data-enter>Open Data Studio <span aria-hidden="true">↗</span></a><button type="button" class="text-button" data-dialog="how-dialog"><span class="play-icon" aria-hidden="true">▷</span> See how it works</button></div>
+            <p class="hero-note"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8 3 3 7-7"/></svg> Start with sample data. Bring your own when you’re ready.</p>
+          </div>
+          <div class="product-visual" aria-label="Illustrative preview of asking a question about sales data">
+            <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div><span class="little-star" aria-hidden="true">✳</span>
+            <div class="file-sticker" aria-hidden="true"><span class="file-icon">↥</span><div>sales.xlsx<small>A good place to start</small></div><span class="sticker-check">✓</span></div>
+            <div class="demo-window">
+              <div class="demo-toolbar"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="demo-caption">A QUESTION. A CLEARER PICTURE.</span><span class="demo-live">SAMPLE</span></div>
+              <div class="demo-question"><span class="question-avatar" aria-hidden="true">↗</span><p>Which products bring in the most revenue?</p></div>
+              <div class="demo-answer">
+                <div class="answer-heading"><span class="studio-avatar" aria-hidden="true">✳</span><span>Let’s take a look.</span><span class="answer-detail">From your data</span></div>
+                <div id="chart-demo" class="demo-panel"><div class="chart-heading"><h2>Small questions.<br>Useful answers.</h2><span>REVENUE BY PRODUCT</span></div>
+                  <div class="sample-chart" role="img" aria-label="Illustrative revenue chart: Smartphone $18,400; Laptop $14,200; Tablet $9,600; Headphones $6,800.">
+                    <div class="chart-row"><span>Smartphone</span><div class="bar-track"><div class="bar bar-green" style="--bar-width:94%"></div></div><strong>$18,400</strong></div>
+                    <div class="chart-row"><span>Laptop</span><div class="bar-track"><div class="bar bar-sage" style="--bar-width:73%"></div></div><strong>$14,200</strong></div>
+                    <div class="chart-row"><span>Tablet</span><div class="bar-track"><div class="bar bar-lilac" style="--bar-width:49%"></div></div><strong>$9,600</strong></div>
+                    <div class="chart-row"><span>Headphones</span><div class="bar-track"><div class="bar bar-yellow" style="--bar-width:35%"></div></div><strong>$6,800</strong></div>
+                  </div><div class="demo-axis" aria-hidden="true"><span>$0</span><span>$10k</span><span>$20k</span></div>
+                </div>
+                <div id="table-demo" class="demo-panel" hidden><div class="chart-heading"><h2>A closer look<br>at the numbers.</h2><span>REVENUE BY PRODUCT</span></div><table class="sample-table"><thead><tr><th scope="col">Product</th><th scope="col">Revenue</th></tr></thead><tbody><tr><td>Smartphone</td><td>$18,400</td></tr><tr><td>Laptop</td><td>$14,200</td></tr><tr><td>Tablet</td><td>$9,600</td></tr><tr><td>Headphones</td><td>$6,800</td></tr></tbody></table></div>
+                <div class="demo-footer"><span><span class="tiny-check" aria-hidden="true">✓</span> Numbers you can inspect</span><button id="demo-toggle" type="button" aria-pressed="false">View as table <span aria-hidden="true">↔</span></button></div>
+              </div>
+            </div>
+            <div class="insight-sticker"><span aria-hidden="true">✦</span><p>From “what’s in here?”<br>to <em>“now I see it.”</em></p></div><p class="visual-note">Illustrative example. Your answers come from your dataset.</p>
+          </div>
+        </section>
+        <section class="benefits" aria-label="What you can do">
+          <article><span class="benefit-number">01 /</span><div><h2>Bring your spreadsheet.</h2><p>CSV or Excel. One sheet or a few.</p></div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l5 5v19H8zM20 4v6h5M12 15h9M12 20h9M12 24h5"/></svg></article>
+          <article><span class="benefit-number">02 /</span><div><h2>Ask it naturally.</h2><p>Totals, trends, or that one curious question.</p></div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 5h22v17H14l-7 5v-5H5zM10 11h12M10 16h8"/></svg></article>
+          <article><span class="benefit-number">03 /</span><div><h2>See the bigger picture.</h2><p>Clear charts. Real rows. Answers to explore.</p></div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 4v23h23M10 23v-7h4v7M17 23V9h4v14M24 23V4h4v19"/></svg></article>
+        </section>
+      </main>
+      <footer class="site-footer"><p>Made for the questions hiding in your data.</p><a href="../index.html" class="scroll-cue" data-enter><span>SCROLL INTO YOUR WORKSPACE</span><span class="scroll-arrow" aria-hidden="true">↓</span></a><button class="footer-info" type="button" data-dialog="faq-dialog">Good to know ↗</button><span class="footer-formats">.CSV <span>+</span> .XLSX</span></footer>
+    </div>
+  </div>
+  <dialog id="how-dialog" aria-labelledby="how-title"><button class="dialog-close" type="button" aria-label="Close" data-close>×</button><p class="eyebrow">FROM FILE TO FIRST INSIGHT</p><h2 id="how-title">Curiosity is all you need.</h2><ol class="steps"><li><span>01</span><div><h3>Choose your data.</h3><p>Open the studio to explore the bundled sales dataset, or upload a CSV or .xlsx file. Each non-empty Excel sheet gets its own dataset.</p></div></li><li><span>02</span><div><h3>Ask your first question.</h3><p>Try “Top 5 products by revenue” or “Show revenue by month.” The table stays beside the conversation.</p></div></li><li><span>03</span><div><h3>Explore the answer.</h3><p>Switch between charts and tables, inspect the query, or take a CSV or chart image with you.</p></div></li></ol><a href="../index.html" class="primary-button" data-enter>Let’s explore <span aria-hidden="true">↗</span></a></dialog>
+  <dialog id="faq-dialog" aria-labelledby="faq-title"><button class="dialog-close" type="button" aria-label="Close" data-close>×</button><p class="eyebrow">A FEW GOOD THINGS TO KNOW</p><h2 id="faq-title">Before you dive in.</h2><details open><summary>What files can I bring?</summary><p>A UTF-8 CSV with a header row, or an .xlsx workbook up to 10 MB. Excel uploads support up to 10 sheets, with 100,000 rows and 100 columns per dataset. Older .xls and macro .xlsm files are not supported.</p></details><details><summary>Can I change my data here?</summary><p>The studio is read-only. Browse, search, sort and ask questions without editing the original cells.</p></details><details><summary>How are answers calculated?</summary><p>Gemini translates your question into a query plan, and pandas calculates the result from the selected dataset. You can inspect the query behind an answer.</p></details><details><summary>Will my uploads stay here?</summary><p>Uploaded datasets stay in the running backend’s memory. They are removed when the backend restarts. Questions and dataset schema are sent to the configured Gemini service.</p></details></dialog>
+  <noscript><style>.experience{height:auto;min-height:0}.landing-sheet{position:relative}.scroll-cue{display:none}</style></noscript>
+</body>
+</html>
